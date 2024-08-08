@@ -45,4 +45,96 @@
 // delete obj.nombre
 // console.log(obj)
 //______________________Funciones flecha_________________________
-//min 54
+// const saludar2 = ()=>{{
+//     console.log("hola");
+//     console.log("mundo!");
+//     }};
+
+//  let resultado = saludar2();
+//  console.log(resultado)
+//si no retorna nada es posible hacer esto!
+//nos dice "undefined"
+//la forma correcta seria mostrar en la misma linea un DATO especifico
+//Por ejemplo: ------------------------------------------------
+// const saludar3 = ()=> "string";
+// let resultado = saludar3();
+// console.log(resultado)
+//------------datos curiosos de funciones flecha----------------
+// const saludar = res => nombre = res;//expresiones, borramos los parentesis
+//                                     // que la convierten en flecha y sigue siendo funcion flecha
+// resultado = saludar
+//---------------------------FUNCIONES COMUNES------------------------------------
+// const saludar = function saludar(){
+//     return nombre = "pedro";
+// }
+// console.log(saludar());
+//o sin que diga const saludar heredando la funcion:(heredamos afuera de igual manera)
+// function saludar(){
+//     return nombre = "pedro";
+// }
+// const resulatdo = saludar();
+// console.log(resulatdo);
+//------------------------EXPLICACION SENTENCIAS Y EXPRESIONES---------------------
+//sentencia es cuando ponemos entre llaves lo que debe ejecutar la funcion,
+//las expresiones son en la misma linea
+//-------------------- crear un objeto  con una funcion dentro(function)
+// const objeto = {
+//     nombre : "bruno",
+//     saludar : function () {console.log(`hola ${this.nombre}`)}
+// }
+// objeto.saludar();
+// console.log(objeto.nombre);
+//_____________________________________THIS_____________________________________
+//explicacion de this (esta tomado del ejercicio de arriba) 
+//En JavaScript, `this` dentro de un método hace referencia al objeto en el que 
+//el método está definido)... `this.nombre` dentro del método saludar se refiere a la
+//propiedad `nombre` del mismo objeto `objeto`. Así, `this` permite acceder a las
+//propiedades del objeto, EN CAMBIO en las funciones flecha `()=>` THIS NO EXISTE!
+//debemos crearlo afuera con window.nombrepropiedad = "informacion a guardar, para que
+//el this tenga un valor por fuera y sin hacer referncia al objeto, de esta forma
+//nos permite que la funcion flecha nos funcione (no es recomendable)
+//---------------------- crear un objeto con una FUNCION FLECHA dentro------------
+//aca usamos this pasandole el valor por fuera, ya que WINDOW ES LOS MISMO QUE THIS!
+// const objeto = {
+//     nombre : "bruno",
+//     saludar : ()=> {console.log(`hola ${this.nombre}`)}//por si solo muestra 
+//     //"hola undefined", ya que this no funciona en funcion flecha
+//     //agregandole un nombre en la propiedad window podemos usarlo 
+// }
+// window.nombre = "bruno";
+// objeto.saludar();
+//EXPLICACION FINAL: no se usa funcion flecha como metodo dentro de un objeto, ya 
+//que no podemos acceder a las propiedades del mismo con this.
+//-------------------------- CONSTRUCTORES CON FUNCIONES ---------------------------
+// function constructorPersona(nombre, apellido) { 
+//     this.Nombre = nombre;
+//     this.Apellido = apellido
+// }//el this lo convierte automaticamente la funcion en un constructor
+// let persona = new constructorPersona("bruno","depetris");
+// console.log(persona.Nombre,persona.Apellido
+//la funcion flecha no funciona como contructor!!! por eso hicimos lo anterior
+//_________________________Funcion Recusriva___________________________
+// es una funcion que se llama asi misma     
+"use strict";
+const validarEdad = (msg)=>{
+	let edad;
+	try{
+		if(msg) edad = prompt(msg);
+		else edad = prompt("introduce tu edad");
+		edad = parseInt(edad)
+		if(isNaN(edad))throw "introduce un numero para la edad";//isNaN es validar que sea numero
+		if(edad > 18) console.log("sos mayor de edad");
+		else console.log("sos menor de edad")
+	}catch(e){
+		validarEdad(e);
+	}
+}
+validarEdad();
+//THROW:En JavaScript, throw se usa para lanzar una excepción.
+//Esto significa que puedes interrumpir el flujo normal
+//del programa y señalar que algo salió mal.
+//FUNCION RECUSIVA: es una funcion que se ejecuta hasta que se ingrese el dato esperado por el sistema!
+//como un DO WHILE
+
+
+
