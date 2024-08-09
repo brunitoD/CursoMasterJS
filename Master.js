@@ -186,24 +186,60 @@
 // boton14.innerHTML ="Size 14px";
 // boton16.innerHTML ="Size 16px";
 
-//--------------------------PARAMETROS ACTUALES PARA VALIDACION -------------------------------
+//_______________________________PARAMETROS ACTUALES PARA VALIDACION______________________________
 // 1)
 // const suma = (a, b) => {
 // 	b = b || 0;//la validacion la creamos por si nos ingresan solo un numero
 // 	console.log(a + b)
 // }
 // suma(10)
-// 2)Usando parametro rest (...rest), lo usamos como "num" es parab crear un objeto con la cantidad cual sea de numeros
-//que ingrese el usuario
+// 2)Usando parametro rest (...rest), lo usamos como "num" es parab crear un objeto con
+// la cantidad cual sea de numeros que ingrese el usuario
 //- El funcionamiento de arguments seria que todos los numeros que le pasemos a suma, se guardan en un array
 // luego ese array lo recorremos para sumar cada uno de los numeros en su posicion y mostrar el resultado fuera
-const suma = (...num)=>{
-	let resultado = 0;
-	for (let i = 0; i < num.length; i++) {
-		resultado += num[i];
-	}
-	console.log(resultado);
-}
+// EJ:
+// const suma = (...num)=>{
+// 	let resultado = 0;
+// 	for (let i = 0; i < num.length; i++) {
+// 		resultado += num[i];
+// 	}
+// 	console.log(resultado);
+// }
 
-suma(12,25);
+// suma(12,25);
 // y si queremos agragar un parametro de frase en rest, va al principio asi (frase,...num)
+
+//_________________________________TERNARIAS y spread_________________________________________
+//-Operador condicional TERNARIO
+//definicion y sintaxis
+// let edad = 12;
+// (edad > 18) ? console.log("sos mayor de edad")//el ? va en el condicional de verdadero, o cumplimiento
+//             : console.log("sos menor de edad");//el : va en el condicional de falso, o incumplimiento
+//en caso de que querramos agregar mas cosas, debemos cerrar entre parentesis lo que agreguemos
+//EJ:
+// (edad > 18) ? (console.log("sos mayor de edad!"),
+//               console.log("Entrada habilitada") )
+// 		    : console.log("sos menor de edad, AFUERA");
+//EL OPERADOR CONDICIONAL TERNARIO, CONSUME MENOS RECURSOS (muy poco, no significativo)
+//el if-else sigue siendo mejor, ya que nos permite hacer condiciones mas gigantes sin 
+//darnos problemas de legibilida
+//------------------------------SPREAD(...res)-----------------------------------
+//agregar un array a otro
+// let arr = ["pera","banana","manzana"];
+// let arr2 = ["kiwi","naranja","banana","manzana","banana","manzana","banana","manzana"];
+// arr.push(arr2[0],arr2[1])//es muy tedioso, imaginate sumar 40 paraemtrois asi [3],[4],[5] y mas
+//para eso esta ...NOmbre que tenga nuestro array
+//ASI:
+// arr.push(...arr2)
+// console.log(arr)
+//y si no queremos modificar los arrays, creamos uno nuevo:
+// let arr3 = [...arr,...arr2]
+// console.log(arr3)
+//AMBAS POSIBILIDADES SON VALIDAS!
+
+// const suma = (num1,num2)=> {
+// 	console.log(num1+num2)
+// }
+// let arr = [3,6]
+// suma(...arr);
+//_________________________________CAPITULO 15, 1:40hs______________________________________
