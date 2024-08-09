@@ -1,0 +1,30 @@
+/* los estilos los agregamos en la parte de clausuras */
+
+*{
+    margin:0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.texto{
+    font-size: 16px;
+    max-width: 1200px;
+    margin: auto;
+    color: darkblue;
+    padding: 30px;
+}
+
+header{
+    display: flex;
+    max-width: 1300px;
+    margin: auto;
+    padding:20px;
+    background-color: cadetblue;
+    justify-content: space-between;
+}
+.noticia{
+    font-size: 35px;
+    text-decoration:underline;
+    padding:20px;
+
+}
+/* -------------------------------hasta aca es el estilo agregado de clausuras------------------------- */

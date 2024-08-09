@@ -115,26 +115,77 @@
 //la funcion flecha no funciona como contructor!!! por eso hicimos lo anterior
 //_________________________Funcion Recusriva___________________________
 // es una funcion que se llama asi misma     
-"use strict";
-const validarEdad = (msg)=>{
-	let edad;
-	try{
-		if(msg) edad = prompt(msg);
-		else edad = prompt("introduce tu edad");
-		edad = parseInt(edad)
-		if(isNaN(edad))throw "introduce un numero para la edad";//isNaN es validar que sea numero
-		if(edad > 18) console.log("sos mayor de edad");
-		else console.log("sos menor de edad")
-	}catch(e){
-		validarEdad(e);
-	}
-}
-validarEdad();
+// "use strict";
+// const validarEdad = (msg)=>{
+// 	let edad;
+// 	try{
+// 		if(msg) edad = prompt(msg);
+// 		else edad = prompt("introduce tu edad");
+// 		edad = parseInt(edad)
+// 		if(isNaN(edad))throw "introduce un numero para la edad";//isNaN es validar que sea numero
+// 		if(edad > 18) console.log("sos mayor de edad");
+// 		else console.log("sos menor de edad")
+// 	}catch(e){
+// 		validarEdad(e);
+// 	}
+// }
+// validarEdad();
 //THROW:En JavaScript, throw se usa para lanzar una excepción.
 //Esto significa que puedes interrumpir el flujo normal
 //del programa y señalar que algo salió mal.
 //FUNCION RECUSIVA: es una funcion que se ejecuta hasta que se ingrese el dato esperado por el sistema!
 //como un DO WHILE
+//_______________________________________ CLAUSURAS ___________________________________________________
+//son funciones que devulven otras funciones, por ejemplo:
+// const saludar = (nombre)=>{
+//     return function(){
+// 		console.log(nombre);
+// 	}
+// }
 
+// let saludarFuncional = saludar("bruno");//usamos saludoFuncional para guardar el RETURN
+// saludarFuncional();//mostramos lo guardado!
+//--------------------------------EVENTO CUANDO CARGA LA PAGINA-----------------------------------------
+//aca estamos haciendo que cuando se cargue la pagina se muestre el nombre cargado en la clausura
+// AddEventListener("load",saludarFuncional); 
+//---------------------------------SIN clausuras-----------------------------------------
+// const cambiarTamaño = (tamaño)=>{
+//     document.querySelector(".texto").style.fontSize = `${tamaño}px`
+// }
+// document.querySelector(".T12").addEventListener("click", ()=>cambiarTamaño(12))
+// document.querySelector(".T14").addEventListener("click", ()=>cambiarTamaño(14))
+// document.querySelector(".T16").addEventListener("click", ()=>cambiarTamaño(16))
+
+
+
+//esto solamente llena los botones desde javascript, una perdidad de tiempo(es solo practica)
+// const boton12 = document.querySelector(".T12")
+// const boton14 = document.querySelector(".T14")
+// const boton16 = document.querySelector(".T16")
+// boton12.innerHTML ="Size 12px";
+// boton14.innerHTML ="Size 14px";
+// boton16.innerHTML ="Size 16px";
+//----------------------------------- CON clausuras -------------------------------
+// const cambiarTamaño = (tamaño)=>{
+//     return ()=>{document.querySelector(".texto").style.fontSize = `${tamaño}px`}
+// }
+
+// px12 = cambiarTamaño(12);
+// px14 = cambiarTamaño(14);
+// px16 = cambiarTamaño(16);
+
+// document.querySelector(".T12").addEventListener("click",px12)
+// document.querySelector(".T14").addEventListener("click", px14)
+// document.querySelector(".T16").addEventListener("click", px16)
+
+// //esto solamente llena los botones desde javascript, una perdidad de tiempo(es solo practica)
+// const boton12 = document.querySelector(".T12")
+// const boton14 = document.querySelector(".T14")
+// const boton16 = document.querySelector(".T16")
+// boton12.innerHTML ="Size 12px";
+// boton14.innerHTML ="Size 14px";
+// boton16.innerHTML ="Size 16px";
+
+//--------------------------PARAMETROS ACTUALES PARA VALIDACION -------------------------------
 
 
