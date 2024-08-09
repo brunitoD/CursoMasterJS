@@ -187,5 +187,23 @@
 // boton16.innerHTML ="Size 16px";
 
 //--------------------------PARAMETROS ACTUALES PARA VALIDACION -------------------------------
+// 1)
+// const suma = (a, b) => {
+// 	b = b || 0;//la validacion la creamos por si nos ingresan solo un numero
+// 	console.log(a + b)
+// }
+// suma(10)
+// 2)Usando parametro rest (...rest), lo usamos como "num" es parab crear un objeto con la cantidad cual sea de numeros
+//que ingrese el usuario
+//- El funcionamiento de arguments seria que todos los numeros que le pasemos a suma, se guardan en un array
+// luego ese array lo recorremos para sumar cada uno de los numeros en su posicion y mostrar el resultado fuera
+const suma = (...num)=>{
+	let resultado = 0;
+	for (let i = 0; i < num.length; i++) {
+		resultado += num[i];
+	}
+	console.log(resultado);
+}
 
-
+suma(12,25);
+// y si queremos agragar un parametro de frase en rest, va al principio asi (frase,...num)
