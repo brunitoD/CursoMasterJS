@@ -237,9 +237,57 @@
 // console.log(arr3)
 //AMBAS POSIBILIDADES SON VALIDAS!
 
-// const suma = (num1,num2)=> {
+// const suma = (num1,num2)=>{
 // 	console.log(num1+num2)
 // }
 // let arr = [3,6]
 // suma(...arr);
 //_________________________________CAPITULO 15, 1:40hs______________________________________
+//APIs: no confundir APIs con API rest, son cosas diferentes!
+//API REST es a la api que se le hacen peticiones y nos devulven dato e informacion
+//APIs comunes, un prompt, un alert, y cosas asi son APIS pequeñas
+
+//-------------------------------------Objeto date----------------------------------------
+// console.log(fecha.getMonth()+1);
+//-getDate:fecha
+//-getDay:dia de la semana, funcionamiento:  dom =>0,lun => 1 , mar =>2, mier:3, jue=>4, vie =>5, sab=>6
+//-getMonth: tambien nos devuelve desde el numero 0,hay que sumar en 1 asi console.log(fecha.getMonth()+1)
+//-getYear: se trabaja sumandole 1900, por idea de los diseñadores! console.log(fecha.getYear()+1900)
+//-getSeconds:segundos del minuto en el que estamos
+//-getHours: hora en la que estamos, redondea para abajo
+//-getMinutes:minuto en el que estamos
+//decirle la fecha: const fecha = new date(2024,08,12)
+//Hora completa: 
+//--------------------------------------CREAMOS RELOJ---------------------------------------------------
+//Ejemplo de uso en un reloj
+//hecho por mi, nos falta agregar 0 si le falta
+// const fecha = new Date();
+// const reloj = document.querySelector(".reloj");
+// const hora = (rellenoreloj)=>{
+//     return function(){
+//         reloj.innerHTML = rellenoreloj;
+// 	}
+// }
+// rellenoreloj = `<div>${fecha.getHours()}</div><div>${fecha.getMinutes()}</div><div>${fecha.getSeconds()}</div>`;
+// let mostrarReloj = hora(rellenoreloj);//usamos saludoFuncional para guardar el RETURN
+// mostrarReloj();//mostramos lo guardado!
+// // reloj.innerHTML = `<div>${fecha.getHours()}</div><div>${fecha.getMinutes()}</div><div>${fecha.getSeconds()}</div>`;
+
+//hecho por dalto: RELOJ
+
+// const addCeros = num =>{
+//     if(num.toString().length < 2) return"0".concat(num);
+//     return num;
+// }
+
+// const Reloj = ()=>{   
+//     const Hora = new Date();
+//     let hr = addCeros(Hora.getHours());
+//     let min = addCeros(Hora.getMinutes());
+//     let seg = addCeros(Hora.getSeconds());
+//     const Reloj = document.querySelector(".reloj");
+//     Reloj.innerHTML =`<div>${hr}</div><div>${min}</div><div>${seg}</div>`;
+// }
+// Reloj();
+// setInterval(Reloj,1000);
+//__________________________________LOCAL STORAGE______________________________________

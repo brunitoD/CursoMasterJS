@@ -28,3 +28,20 @@ header{
 
 } */
 /* -----------------hasta aca es el estilo agregado de clausuras--------------- */
+
+/* ------------------agregado RELOJ practicando onjeto date-------------------- */
+.reloj{
+    display: inline-flex;
+    background:linear-gradient(#333,#999 );
+    padding: 30px;
+    border-radius: .6rem;
+    font-size: 2rem;
+}
+
+.reloj div{
+    padding: 5px;
+    margin: .6px;
+    border-radius: .3rem;
+    background-color: aliceblue ; 
+    color: rgb(77, 191, 217);
+}
