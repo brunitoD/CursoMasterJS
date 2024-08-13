@@ -290,4 +290,69 @@
 // }
 // Reloj();
 // setInterval(Reloj,1000);
-//__________________________________LOCAL STORAGE______________________________________
+//__________________________________LOCAL STORAGE Y SESSION STORAGE______________________________________
+//SessionsStorage: informacion que se almacena en la sesion, es decir, cuando actualizamos la pag se desaparece
+//LocalStorage: lo contrario a SessionStorage 
+
+//creamos productos en el carrito (llave/valor)
+//los productos se guardan aunque cargemos, para eliminarlos debemos programarlo
+// localStorage.setItem("nombre1","Bruno");
+// localStorage.setItem("nombre2","Brun");
+// localStorage.setItem("nombre3","Bru");
+// localStorage.setItem("nombre4","Br");
+
+// console.log(localStorage.getItem("nombre1"));//mostramos producto
+// let nombre = localStorage.getItem("nombre");//obtenemos producto y guardamos
+// console.log(localStorage.length - 1);//mostramos la cantidad de productos
+//Ahora con sessionStorage
+
+// sessionStorage.setItem("nombre1","Bruno");
+// sessionStorage.setItem("nombre2","Brun");
+// sessionStorage.setItem("nombre3","Bru");
+// sessionStorage.setItem("nombre4","Br");
+
+// console.log(localStorage.getItem("nombre1"));//mostramos producto
+// let nombre = localStorage.getItem("nombre");//obtenemos producto y guardamos (luego si queremos, mostramos la variable y chau)
+//los productos no se guardan si cargamos o cerramos y abrimos, se eliminan del sessionStorage
+//el sessionStorage es la sesion actual, si se sale y vuelve a entrar, se vacia nuestro carrito!
+
+//---------------------------REMOVER UN ITEM--------------------------------
+// sessionStorage.setItem("nombre","Bruno");//creamos
+// localStorage.removeItem("nombre")//eliminamos
+
+//---------------------------VACIAR LOCAL O SESSION STORAGE------------------------------
+// localStorage.clear();
+//---------------------------REMOVER ITEM AL RATITO DE CARGAR------------------------------
+// setTimeout(()=>{
+//     let nombre = localStorage.removeItem("nombre")//elimina nombre
+// },2000)//a los dos segundos de carga
+
+//---------------------------EJEMPLO DE USO LOCAL O SESSION STORAGE--------------------------
+// localStorage.clear();
+// const modal = document.querySelector(".modal-overlay");
+
+// const definirIdioma = ()=>{
+//     document.querySelector(".en").addEventListener("click", ()=>{
+//         localStorage.setItem("idioma","en")
+//         cerrarModal();
+//     })
+//     document.querySelector(".es").addEventListener("click", ()=>{
+//         localStorage.setItem("idioma","es")
+//         cerrarModal();
+//     })
+// }
+// const cerrarModal = ()=>{
+//     modal.style.animation = "desaparecer 1s forwards";
+//     setTimeout(()=> modal.style.display = "none",1000)
+// }
+// const idioma = localStorage.getItem("idioma");
+// if(idioma === null) definirIdioma();
+// else {
+//     console.log(`idioma: ${idioma}`);
+//     modal.style.display = "none";
+// }
+// if(idioma == "es") {mostrarEnEspañol()}
+// else {mostrarEnIngles();}
+// mostrarEnEspañol=()=>{
+//queda completar esto, ya que no pudimos hacerlo como queriamos(que se haga como la alerta por defecto de google)
+//esto se realizaria con una api o una galeria de un framework que contenga traducciones de las palabras, o un JSON con una traduccion d elas palabras

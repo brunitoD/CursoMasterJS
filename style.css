@@ -1,10 +1,11 @@
 /*------------- los estilos los agregamos en la parte de clausuras ---------------*/
 
-/* *{
+*{
     margin:0;
     padding: 0;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+/* *
 .texto{
     font-size: 16px;
     max-width: 1200px;
@@ -30,7 +31,7 @@ header{
 /* -----------------hasta aca es el estilo agregado de clausuras--------------- */
 
 /* ------------------agregado RELOJ practicando onjeto date-------------------- */
-.reloj{
+/* .reloj{
     display: inline-flex;
     background:linear-gradient(#333,#999 );
     padding: 30px;
@@ -43,5 +44,35 @@ header{
     margin: .6px;
     border-radius: .3rem;
     background-color: aliceblue ; 
-    color: rgb(77, 191, 217);
+    color: rgb(0, 0, 0);
+} */
+ 
+/* ------------------finalizacion RELOJ practicando onjeto date-------------------- */
+
+/* ---------------crear seleccion de idioma LOCAL/SESSION STORAGE ------------------*/
+.modal-overlay{
+    background:rgba(0,0,0,0.7) ;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+}
+
+.modal{
+    background-color: beige;
+    margin: 30px;
+    padding: 9px 20px;
+    border-radius:10px ;
+
+}
+
+@keyframes aparecer{
+    from {opacity:0}
+    to{opacity:1}
+}
+@keyframes desaparecer{
+    from {opacity:1}
+    to{opacity:0}
 }
