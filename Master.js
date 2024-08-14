@@ -354,5 +354,55 @@
 // if(idioma == "es") {mostrarEnEspañol()}
 // else {mostrarEnIngles();}
 // mostrarEnEspañol=()=>{
-//queda completar esto, ya que no pudimos hacerlo como queriamos(que se haga como la alerta por defecto de google)
-//esto se realizaria con una api o una galeria de un framework que contenga traducciones de las palabras, o un JSON con una traduccion d elas palabras
+//queda completar esto, ya que no pudimos hacerlo como queriamos(que se haga como la
+// alerta por defecto de google) esto se realizaria con una api o una galeria de un
+// framework que contenga traducciones de las palabras, o un JSON con una traduccion
+// de las palabras
+//___________________________________DRAG & DROP_______________________________________________
+//COMO TRABAJAR Y EXPLICACIONES COMPLETAS:
+// const circulo = document.querySelector(".circulo")
+// const rectangulo = document.querySelector(".rectangulo")
+
+// circulo.addEventListener("dragstart",(e)=>{
+//     e.dataTransfer.setData("nombreX", e.target.className);//podriamos poner en lugar de e.target.className
+//     console.log(e.dataTransfer.getData("nombreX"))        //.circulo, pero si trabajamo con varios objetos
+//                                                           //esto seria un problema, asi que debemos hacerlo
+//                                                           //asi o con id, que es mas seguro.
+//                                                           //esto esta haciendo que cuando mostremos 
+//                                                           //aparezca "circulo" en la consola, que es
+//                                                           //la clase
+// })//cuando agarramos
+
+// // circulo.addEventListener("drag",()=>console.log(2))//cuando lo movemos
+// // circulo.addEventListener("dragend",()=>console.log(3))//cuando soltamos
+
+
+// rectangulo.addEventListener("dragenter",() => console.log(1));//verifica que este entrando(el circulo)
+// rectangulo.addEventListener("dragover",(e) =>{
+//     e.preventDefault();
+//     //este agregado hace que no aparezca como bloqueado al querer soltar dentro del rectangulo
+//     console.log(2)});
+// //DRAGOVER: tiene la propiedad que drop necesita para saber si el circulo puede o 
+// //no soltarse en el rectangulo, en este caso no, entonces debemos crear codigo extra en el drop
+// rectangulo.addEventListener("drop",(e)=>console.log(e.dataTransfer.getData("nombreX")));
+// //verifica cuando se suelta, y la parte de de get, esta tomando y guardando en el rectangulo
+// rectangulo.addEventListener("dragleave",() => console.log(4));//cuando entra, se mueve y se va!
+// //objeto dataTransfer.setData()  ---> creamos un objeto
+// //-el set siempre crea y el get trae-
+
+//---------------------------------EJEMPLO DE TEXTURIZADOR:-------------------------------------------
+// const zona = document.querySelector(".zona");
+// zona.addEventListener("dragover",(e)=>{
+//     e.preventDefault();                //para que me deje largar cosas encima de rectangulo(la zona)
+// })
+// zona.addEventListener("drop",(e)=>{
+//     let n = e.dataTransfer.getData("textura");//aca recibimos la data
+//     zona.style.background = `url("imagenes/textura${n}.png")`;//el estilo que le damos a la zona es el que recibimos 
+// })
+// for (let i = 1; i <document.querySelector(".texturas").children.length + 1 ; i++){
+//     document.querySelector(`.textura${i}`).addEventListener("dragstart",(e)=> transferirTextura(i,e))
+// }
+// const transferirTextura = (n,e)=>{
+//     e.dataTransfer.setData("textura",n)
+// }
+//------------------------------ finalizacion del texturizador-----------------------

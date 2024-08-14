@@ -49,8 +49,8 @@ header{
  
 /* ------------------finalizacion RELOJ practicando onjeto date-------------------- */
 
-/* ---------------crear seleccion de idioma LOCAL/SESSION STORAGE ------------------*/
-.modal-overlay{
+/* ---------------crear seleccion de idioma LOCAL/SESSION STORAGE ------------------
+ .modal-overlay{
     background:rgba(0,0,0,0.7) ;
     width: 100%;
     height: 100%;
@@ -75,4 +75,54 @@ header{
 @keyframes desaparecer{
     from {opacity:1}
     to{opacity:0}
+} 
+    ------------------------------fin seleccion idioma---------------------------------*/
+/* __________________________________DRAG Y DROP ________________________________________ 
+ .circulo{
+    background-color: red;
+    width:8%;
+    height: 110px;
+    border-radius: 50%;
+    margin-left:20%;
 }
+.rectangulo{
+    margin-top: 10px;
+    outline:4px dashed rgb(123, 119, 119) ;
+    width: 50%;
+    height: 200px;
+    background-color: grey;
+    margin-left:20%;
+} */
+
+/* ----------------------------------TEXTURIZADOR drag y drop------------------------------- 
+.texturas{
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: flex;
+    user-select: none; -esto hace que no se pueda seleccionar nada -
+}
+.texturas div{
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+    user-select: all;//nos permite seleecionar solo los div
+}
+.texturas div:active{
+opacity:0.6;
+}
+.textura1{
+    background:  url("imagenes/textura1.png");
+}
+.textura2{
+    background:  url("imagenes/textura2.png");
+}
+.textura3{
+    background:  url("imagenes/textura3.png");
+}
+.zona{
+    margin: 10px;
+    background-color: rgb(186, 186, 186);
+    height: 200px;
+}
+*/
