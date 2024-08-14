@@ -435,3 +435,31 @@
 // }
 // geolocation.getCurrentPosition(posicion,err,options);
 //para Saber la posicion exacta en tiempo real, usamos watchPosition()(debemos averiguarla nosotros)
+//_____________________________HISTORY(HISTORIAL)_____________________________
+// console.log(history)//muestra el historial
+// console.log(history.length)//la cantidad de idas y vueltas ene la pagina
+// console.log(history.back())//funciona solo en consola(cantidad de veces que se vuelve)
+// console.log(history.forward())//funciona solo en consola
+// console.log(history.go(1))//funciona en consola(hacia la siguiente op hacia atras)
+//si ponemos go(0) nos recarga la pagina
+
+//-muchos de los probados funcionan solamente en cosnola, siq ueremos hacer
+//uso de ellos vamos a necesitar funciones y llamarlas cuando deseemos-
+
+// history.pushState({nombre:"bruno"},"","?agregadoAlFonfoDeLaURL")
+// //al ejecutar esto se nos cambia/agrega una nueva URL con agregadoAlFonfoDeLaURL
+// console.log(location.href)//ver la URL actual o establecer nueva URL
+// history.state//nos dice el cambio realizado en el pushState()
+//a continuacion vamos a crear un evento, el cual no esta agregado a ninguna
+//variable, solo a window(cuando no se pone nada es a window!!!)
+//este evento funciona como lectura para saber a que pagina estamos volviendo
+//o yendo (con las flechitas de volver hacia atras o hacia adelante)
+// addEventListener("popstate",(e)=>{
+//     console.log(e.state);
+// })
+// history.replaceState({nombre:"bruno"},"","?agregadoAlFonfoDeLaURL")
+//funciona igual que push, solamente que no lo muestra msj consola
+//y el popstate del event listener no funcionara!!!!!
+//------------------------------final de history--------------------------
+//_______________________________FileReader________________________________
+
