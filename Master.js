@@ -406,3 +406,32 @@
 //     e.dataTransfer.setData("textura",n)
 // }
 //------------------------------ finalizacion del texturizador-----------------------
+//______________________________Geolocalization (APIs)________________________________
+//detecta movimientos de un dispositivo, que vayamos de un lado para otro y demas
+// const geolocation = navigator.geolocation;
+
+// const posicion = (pos)=>{
+//     console.log(pos.coords.longitude)
+//     console.log(pos.coords.latitude)
+
+// }
+
+// geolocation.getCurrentPosition(posicion);
+//consulta si nos deja conocer nuestra ubicacion
+//esto realizado nos devuelve nuestra ubicacion exacta en consola, luego pegamos en orden 
+//buscando con google maps y nos muestra exactamente el lugar, una locura!
+// const geolocation = navigator.geolocation;
+
+// const posicion = (pos)=>{
+//     console.log(pos)
+// }
+// const err = ()=>{
+//     console.log(e);
+// }
+// const options = {
+//     maximumAge:0,//la posicion exacta, si le ponemos mas tiempo nos devuelve la del cache
+//     timeout:3000,//tiempo de recarga
+//     enableHightAcurracy:true//nos devuelve la ALTA PRECISION
+// }
+// geolocation.getCurrentPosition(posicion,err,options);
+//para Saber la posicion exacta en tiempo real, usamos watchPosition()(debemos averiguarla nosotros)

@@ -94,19 +94,19 @@ header{
     margin-left:20%;
 } */
 
-/* ----------------------------------TEXTURIZADOR drag y drop------------------------------- 
+/* ----------------------------------TEXTURIZADOR drag y drop-------------------------------  
 .texturas{
     margin: 10px;
     border: 1px solid #000;
     border-radius: 5px;
     display: flex;
-    user-select: none; -esto hace que no se pueda seleccionar nada -
+   user-select: none;   -esto hace que no se pueda seleccionar nada - 
 }
 .texturas div{
     width: 50px;
     height: 50px;
     margin: 6px;
-    user-select: all;//nos permite seleecionar solo los div
+    user-select: all;  nos permite seleecionar solo los div 
 }
 .texturas div:active{
 opacity:0.6;
