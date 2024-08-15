@@ -462,4 +462,67 @@
 //y el popstate del event listener no funcionara!!!!!
 //------------------------------final de history--------------------------
 //_______________________________FileReader________________________________
+//-------LEER UN SOLO ARCHIVO-----ACA USAMOS ReadAsText(), que es para archivos de texto
+// const archivo = document.getElementById('archivo')
+// archivo.addEventListener("change",(e)=>{//change es la escucha/evento al cambiar un input
+//     // e.target.files//obtener el valor cuando son muchos archivos
+//     leerArchivo(archivo.files[0])//archivo.files[0] obtener el valor del archivo, para pocos archivos
+//                                  //la funcion es creada para leer dicho archivo                               
+// })
+
+// const leerArchivo = (ar) => {//ar es lo que recibimos arriba
+//     const reader = new FileReader
+//     reader.readAsText(ar);//leemos el archivo que recibimos y se guarda en reader
+//     const texto = document.querySelector(".cargar-texto")
+//     reader.addEventListener("load",(e)=> 
+//         texto.innerHTML = `${e.currentTarget.result}`
+//     );
+
+//     //verificamos que se termino de leer,en caso de que si, lo muestra en un div
+//     // con el evento e.currentTarget.result, el cual nos muestra exactamente lo que
+//     //hay dentro
+// }
+// //tambien se puede leer un archivo JSON que nos mando el usuario
+// //ASI: console.log(JSON.parse(e.currentTarget.result))
+//-------LEER MAS DE UN SOLO ARCHIVO-----
+
+// const archivo = document.getElementById('archivo')
+// archivo.addEventListener("change",(e)=>{
+//     leerArchivo(archivo.files)                                                          
+// })
+
+// const leerArchivo = (ar) =>
+// {
+//     // const count = 0;
+
+//     for(var i = 0; i < ar.length ;i++)
+//     {
+//         const reader = new FileReader();
+//         reader.readAsText(ar[i]);
+//         reader.addEventListener("load",(e)=> 
+//         {
+            
+//             // const obj = JSON.parse(e.currentTarget.result)
+//             // console.log(obj.aprobados)
+//             //esto solo funciona con objetos el jsonparse, para leer otras cosas que no
+//             //esten encapsuladas, usamos simplemente:
+//             const texto = document.querySelector(".cargar-texto")
+//             const informacion = e.currentTarget.result;
+//             texto.innerHTML += `<b style="color:red;">Texto insertado:</b><br> ${informacion}<br><br>`;            
+//         });
+//     }
+// }
+//asi se leen varios OBJETOS, no html ni javascript como antes, para eso debemos programar
+//una validacion de que nos diga que TIPO de archivo se esta ingresando (teoria mia)
+
+//-----------------------------FILE READER ReadAsDataURL-------------------------------------------
+//con esta leemos archivos como videos, imagenes, etc!
+//cosas simples que cambian:
+//reader.readAsDataURL(ar[i]);
+//codigo que se agrega en el load:
+//let newImg = `img src=`${e.currentTarget.result}`>`;
+//document.querySelector(".texto").innerHTML += newImg;
+
+
+
 
