@@ -516,12 +516,26 @@
 //una validacion de que nos diga que TIPO de archivo se esta ingresando (teoria mia)
 
 //-----------------------------FILE READER ReadAsDataURL-------------------------------------------
+
 //con esta leemos archivos como videos, imagenes, etc!
-//cosas simples que cambian:
-//reader.readAsDataURL(ar[i]);
-//codigo que se agrega en el load:
-//let newImg = `img src=`${e.currentTarget.result}`>`;
-//document.querySelector(".texto").innerHTML += newImg;
+const archivo = document.getElementById('archivo');
+archivo.addEventListener("change", (e)=>{
+    leerArchivo(archivo.files)
+})
+    
+const leerArchivo = (ar) =>{
+        
+        for(var i = 0; i < ar.length ;i++)
+        {
+            const reader = new FileReader();
+            reader.readAsDataURL(ar[i]);
+            reader.addEventListener("load",(e)=> 
+            {
+                let newImg = `<img src='${e.currentTarget.result}'>`;
+                document.querySelector(".resultado").innerHTML += newImg;//a medida que las lee las suma al contenedor       
+            });
+        }
+    }
 
 
 
