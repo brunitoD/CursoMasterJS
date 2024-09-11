@@ -501,7 +501,7 @@
 //         reader.readAsText(ar[i]);
 //         reader.addEventListener("load",(e)=> 
 //         {
-            
+
 //             // const obj = JSON.parse(e.currentTarget.result)
 //             // console.log(obj.aprobados)
 //             //esto solo funciona con objetos el jsonparse, para leer otras cosas que no
@@ -518,25 +518,87 @@
 //-----------------------------FILE READER ReadAsDataURL-------------------------------------------
 
 //con esta leemos archivos como videos, imagenes, etc!
-const archivo = document.getElementById('archivo');
-archivo.addEventListener("change", (e)=>{
-    leerArchivo(archivo.files)
-})
-    
-const leerArchivo = (ar) =>{
-        
-        for(var i = 0; i < ar.length ;i++)
-        {
-            const reader = new FileReader();
-            reader.readAsDataURL(ar[i]);
-            reader.addEventListener("load",(e)=> 
-            {
-                let newImg = `<img src='${e.currentTarget.result}'>`;
-                document.querySelector(".resultado").innerHTML += newImg;//a medida que las lee las suma al contenedor       
-            });
-        }
-    }
+// const archivo = document.getElementById('archivo');
+// archivo.addEventListener("change", (e)=>{
+//     leerArchivo(archivo.files)
+// })
 
+// const leerArchivo = (ar) =>{
 
+//         for(var i = 0; i < ar.length ;i++)
+//         {
+//             const reader = new FileReader();
+//             reader.readAsDataURL(ar[i]);
+//             reader.addEventListener("load",(e)=> 
+//             {
+//                 let newImg = `<img src='${e.currentTarget.result}'>`;
+//                 document.querySelector(".resultado").innerHTML += newImg;//a medida que las lee las suma al contenedor       
+//             });
+//         }
+//     }
 
+//----------------------------------------FileReader & Drag And Drop-------------------------------------------
 
+// const cargarArchivo = ar => {
+//     const reader = new FileReader();
+//     //PARA TEXTO
+//     // reader.readAsText(ar);
+//     // reader.addEventListener("load", e=>{
+//     //     document.querySelector(".resultado").textContent = e.currentTarget.result//currentTarget es el objeto que genera el evento(txt,pdf,etc), y el result es lo que FileReader leyo de el, el textcontent= seria que el contenido va a ser cambiado por lo que lea FileReader 
+//     // })
+//     //PARA IMAGENES
+//     // reader.readAsDataURL(ar);
+//     // reader.addEventListener("load", e =>{
+//     //     let URLimagen = URL.createObjectURL(ar);//crear la Url del archivo que recibimos, URL temporal
+//     //     let img = document.createElement("IMG");//creamos una imagen en el HTML, y la guardamos en js tambien
+//     //     img.setAttribute("src",URLimagen);//le damos el source a la imagen, en este caso es URLimagen
+//     //     document.querySelector(".resultado").appendChild(img);//a el div resultado, le insertamos la imagen la imagen
+//     // })
+//     // PARA VIDEOS + mostrar barra de progreso
+//     const zona = document.querySelector(".zona-arrastre");
+//     zona.addEventListener("dragover", e => {
+//         e.preventDefault();
+//         changeStyle(e.srcElement, "#444");//el e.srcelement se refiere al elemento html que esta recibiendo el evento dragover, y el #444 es el color (ambos se pasan a la funcion)
+//     })
+//     zona.addEventListener("dragleave", e => {
+//         e.preventDefault();
+//         changeStyle(e.srcElement, "#888");
+//     })
+//     zona.addEventListener("drop", e => {
+//         e.preventDefault();
+//         changeStyle(e.srcElement, "#888");
+//         cargarArchivo(e.dataTransfer.files[0])//aca accede al primer archivo en una transferencia de datos(en drag and drop),se lo pasamos a la funcion
+//         zona.style.border = "4px solid #888;"
+//     })
+//     const changeStyle = (obj, colorElegido) => {
+//         obj.style.color = colorElegido;
+//         obj.style.border = `4px dashed ${colorElegido}`;
+//     }
+//     reader.readAsArrayBuffer(ar);
+//     reader.addEventListener("progress", e => {
+//         let carga = Math.round(e.loaded / ar.size * 100);
+//         zona.textContent = `${carga}%`;
+//         document.querySelector(".barra-de-carga").style.padding = "75px 20px";
+//         document.querySelector(".barra-de-carga").style.width = `${carga / 2.4}%`;//el 2.4 es la division para que se nos muestre justo cuando termine de cargar
+//     })
+//     reader.addEventListener("loadend", e => {
+//         changeStyle(zona, "#2e7");
+//         zona.style.borderStyle = "solid"
+//         document.querySelector(".barra-de-carga").style.background = "#2e7";
+//         setTimeout(() => {
+//             zona.style.color = "#fff";
+//             zona.style.animation = "aparecer 1s forwards"
+//             zona.textContent = "¡Carga Completa!"
+//         }, 0.5)
+//     })
+//     reader.addEventListener("load", e => {
+//         let video = new Blob([new Uint8Array(e.currentTarget.result)], { type: "video/mp4" })
+//         let URLimagen = URL.createObjectURL(video);
+//         let img = document.createElement("VIDEO");
+//         img.setAttribute("src", URLimagen);
+//         document.querySelector(".resultado").appendChild(img);
+//         img.play();
+//     })
+
+// }
+//esto lee solamente texto, para hacerlo con imagenes..
