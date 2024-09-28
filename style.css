@@ -5,6 +5,10 @@
     padding: 0;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+body,h2,div,input,button{
+    margin:0;
+    padding: 0;
+}
 /* *
 .texto{
     font-size: 16px;
@@ -193,7 +197,7 @@ img:nth-child(18){
 
 /* -------------------------------------------- FIN Galeria dinamica--------------------------------------------------- 
 /* -------------------------------------------- FileReader & Drag And Drop--------------------------------------------------- */
-.zona-arrastre, .barra-de-carga{
+/* .zona-arrastre, .barra-de-carga{
     padding: 60px 20px;
     border: 4px dashed #222;
     width: 40%;
@@ -234,5 +238,6 @@ img{
         opacity: 1;
 
     }
-}
+} */
 /* -------------------------------------fin filereader + drag y drop ------------------------------ */
+/* ------------------------------------- indexedDB+DragyDrop -------------------------------------- */

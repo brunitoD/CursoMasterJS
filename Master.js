@@ -608,76 +608,92 @@
 //en la bd, los object stores son almacenes de objetos, son como tablas)
 //esta arquitectura nos permite guardar datos en forma de OBJETO
 //keypath en ligar de autoincrement, nos permite trabajar con DNI de personas
-const IDBRequest1 = indexedDB.open("daltobase", 1);//esta linea lo que hace es abrir la BD, y si no existe, la crea!(es una solicitud)
-IDBRequest1.addEventListener("upgradeneeded", () => {//aca es la creacion de tablas
-    const db = IDBRequest1.result;//la BD va a ser el resultado de el result devuelto en caso de exito
-    db.createObjectStore("nombres",{//creamos el almacen de objetos, como una TABLA
-        autoIncrement: true //es la key, el id ahora porque es numero autoincremental
-    }); 
-    console.log("se ha creado correctamente");
-})
-IDBRequest1.addEventListener("success", (e) => {//esto nos indica si abrio la BD
-    console.log("todo salio correctamente");
-    console.log(IDBRequest1.result);//mostramos lo creado en este caso, que fue relojes con id autoincremental
-})
-IDBRequest1.addEventListener("error", (e) => {//esto nos indica si abrio la BD
-    console.log("hubo un error al abrir la BD");
-})
+//llamamos IDBRequest a la constante por que son las silabas de indexedDB request (IDBRequest)
+// const IDBRequest1 = indexedDB.open("daltobase", 1);//esta linea lo que hace es abrir la BD, y si no existe, la crea!(es una solicitud)
+// IDBRequest1.addEventListener("upgradeneeded", () => {//aca es la creacion de tablas
+//     const db = IDBRequest1.result;//la BD va a ser el resultado de el result devuelto en caso de exito
+//     db.createObjectStore("nombres", {//creamos el almacen de objetos, como una TABLA
+//         autoIncrement: true //es la key, el id ahora porque es numero autoincremental
+//     });
+//     console.log("se ha creado correctamente");
+// })
+// IDBRequest1.addEventListener("success", (e) => {//esto nos indica si abrio la BD
+//     console.log("todo salio correctamente");
+//     console.log(IDBRequest1.result);//mostramos lo creado en este caso, que fue relojes con id autoincremental
+// })
+// IDBRequest1.addEventListener("error", (e) => {//esto nos indica si abrio la BD
+//     console.log("hubo un error al abrir la BD");
+// })
+//nuevo evento para drag y drop
+//-------------------------------AGREGAR ELEMENTO--------------------------------------------------
+// document.getElementById('add').addEventListener("click", () => {
+//     let nombre = document.getElementById('nombre').value;
+//     if (nombre.length) {
+//             addObjeto({ nombre });//esto funcionaria nombre:nombre, pero existe le shorthand de que si la variable es igual al valor, ya se agrega abreviandolo
+//     }
+//     leerObjetos()
+// })
+//-------------------------------------------------------------------------------------------------
 
 //hasta aca solo creamos y verificamos la creacion de la base de datos + creacio  de un almacen de objetos(Como una tabla)
 //--------creacion del CRUD (ABM)------
 //1_CREATE 
 // const objeto ={bruno:"depetris"}
 // addObjetos(objeto)
-const addObjeto = objeto =>{
-    const db = IDBRequest1.result;
-    const IDBtransaction = db.transaction("nombres","readwrite");//readwrite(leer-scribir) se usa para cuando creamos,eliminamos,modificamos!readonly(solo lectura)
-    const objectStore = IDBtransaction.objectStore("nombres");
-    //hasta aca lo que hicimos es abrir una transaccion
-    objectStore.add(objeto);//el objeto que queremos agregar
-    IDBtransaction.addEventListener("complete", (e)=>{
-        console.log("objeto agregado correctamente")
-    })
-}
+// const addObjeto = objeto => {
+//     const db = IDBRequest1.result;
+//     const IDBtransaction = db.transaction("nombres", "readwrite");//readwrite(leer-scribir) se usa para cuando creamos,eliminamos,modificamos!readonly(solo lectura)
+//     const objectStore = IDBtransaction.objectStore("nombres");
+//     //hasta aca lo que hicimos es abrir una transaccion
+//     objectStore.add(objeto);//el objeto que queremos agregar
+//     IDBtransaction.addEventListener("complete", (e) => {
+//         console.log("objeto agregado correctamente")
+//     })
+// }
 //2_cargar/leer objetos
-const leerObjetos = ()=>{//funcion que lee objetos
-    const db = IDBRequest1.result;
-    const IDBtransaction = db.transaction("nombre","readonly");
-    const objectStore = IDBtransaction.objectStore("nombres");
-    const cursor = objectStore.openCursor();//se crea para la lectura en el evento succes, se lee si o si una vez hasta siendo null el resultado
-    //esto funciona para que una vez que dejaron de haber objetos creados pase a null el valor de cursor y deje de iterar, ya que de otra forma 
-    //nos muestra iteracion infinita de los mismos objetos
-        cursor.addEventListener("success",()=>{
-        if(cursor.result){
-            console.log(cursor.result.value)
-            cursor.result.continue()
-        }else console.log("todos los datos fueron leidos");
-    })
-}
+// const leerObjetos = () => {//funcion que lee objetos
+//     const db = IDBRequest1.result;
+//     const IDBtransaction = db.transaction("nombres", "readonly");
+//     const objectStore = IDBtransaction.objectStore("nombres");
+//     document.querySelector(".nombre").innerHTML = "";
+
+//     const cursor = objectStore.openCursor();//se crea para la lectura en el evento succes, se lee si o si una vez hasta siendo null el resultado
+//     //esto funciona para que una vez que dejaron de haber objetos creados pase a null el valor de cursor y deje de iterar, ya que de otra forma 
+//     //nos muestra iteracion infinita de los mismos objetos
+//     // const fragment = document.createDocumentFragment();
+//     cursor.addEventListener("success", () => {
+//         if (cursor.result) {
+//             // console.log(cursor.result.value) lo usabamos antes de agregar el drag y drop
+//             let elemento = nombresHTML(cursor.result.key, cursor.result.value)
+//             // fragment.appendChild(elemento)
+//             cursor.result.continue()
+//         } else { console.log("watifu") }
+//     })
+// }
 //3_Modificar objeto
-const modificarObjeto = (key,objeto) =>{
-    const db = IDBRequest1.result;
-    const IDBtransaction = db.transaction("nombres","readwrite");//readwrite(leer-scribir) se usa para cuando creamos,eliminamos,modificamos!readonly(solo lectura)
-    const objectStore = IDBtransaction.objectStore("nombres");
-    //hasta aca lo que hicimos es abrir una transaccion
-    objectStore.put(objeto,key);//el objeto que queremos modificar
-    IDBtransaction.addEventListener("complete", (e)=>{
-        console.log("objeto modificado correctamente")
-    })
-}
+// const modificarObjeto = (key, NuevoNombre) => {
+//     const db = IDBRequest1.result;
+//     const IDBtransaction = db.transaction("nombres", "readwrite");//readwrite(leer-scribir) se usa para cuando creamos,eliminamos,modificamos!readonly(solo lectura)
+//     const objectStore = IDBtransaction.objectStore("nombres");
+//     //hasta aca lo que hicimos es abrir una transaccion
+//     objectStore.put(NuevoNombre, key);//el objeto que queremos modificar
+//     IDBtransaction.addEventListener("complete", (e) => {
+//         console.log("objeto modificado correctamente")
+//     })
+// }
 //para modificar en consola: modificarObjeto(llave, {nombre :"nuevoNombre"})
 
-//3_Modificar objeto
-const eliminarObjeto = key =>{
-    const db = IDBRequest1.result;
-    const IDBtransaction = db.transaction("nombres","readwrite");//readwrite(leer-scribir) se usa para cuando creamos,eliminamos,modificamos!readonly(solo lectura)
-    const objectStore = IDBtransaction.objectStore("nombres");
-    //hasta aca lo que hicimos es abrir una transaccion
-    objectStore.delete(key);//el objeto que queremos modificar
-    IDBtransaction.addEventListener("complete", (e)=>{
-        console.log("objeto modificado correctamente")
-    })
-}
+//---------------------------3_eliminar objeto
+// const eliminarObjeto = key => {
+//     const db = IDBRequest1.result;
+//     const IDBtransaction = db.transaction("nombres", "readwrite");//readwrite(leer-scribir) se usa para cuando creamos,eliminamos,modificamos!readonly(solo lectura)
+//     const objectStore = IDBtransaction.objectStore("nombres");
+//     //hasta aca lo que hicimos es abrir una transaccion
+//     objectStore.delete(key);//el objeto que queremos modificar
+//     IDBtransaction.addEventListener("complete", (e) => {
+//         console.log("objeto modificado correctamente")
+//     })
+// }
 //para eliminar en consola: eliminarObjeto(llave)
 
 //
@@ -687,3 +703,40 @@ const eliminarObjeto = key =>{
 //     const objectStore = IDBtransaction.objectStore("nombres");
 //     return [objectStore,IDBtransaction]
 // }
+// const container = document.querySelector(".nombre");
+//--------------------------------Metodo para modificar un elemento---------------------------
+// const nombresHTML = (id, name) => {
+//     const nuevaEntrada = document.createElement("div");
+//     nuevaEntrada.innerHTML = `
+//     <div style="display:flex">
+//         <h1>id:</h1>
+//         <h1>${id}</h1>
+//     </div>
+//     <div style="display:flex">
+//         <h2>Nombre:</h2>
+//         <h2 class="nombre-editable" contenteditable="true" spellcheck="false">${name.nombre}</h2> 
+//     </div>
+//     <div class="options">
+//         <button class="posible">Guardar</button>
+//         <button class="delete">Eliminar</button>
+//     </div>`;
+
+//     container.appendChild(nuevaEntrada);
+
+//     // Seleccionar el botón "Guardar" y el h2 en el contexto de la nueva entrada
+//     const btnGuardar = nuevaEntrada.querySelector(".posible");
+//     const h2 = nuevaEntrada.querySelector(".nombre-editable");
+//     const btnEliminar = nuevaEntrada.querySelector(".delete")
+//------guardar lo modificado
+//     btnGuardar.addEventListener("click", () => {
+//         modificarObjeto(id, { nombre: h2.textContent });      
+//     });
+//------guardar la eliminacion
+//     btnEliminar.addEventListener("click",()=>{
+//         eliminarObjeto(id);
+//         document.querySelector(".nombre").textContent=""//actualizar automaticamente la lista
+//         leerObjetos();
+//     })
+// }
+//--------------------------------FINALIZACION CRUD CON indexedDB------------------------------------
+//------------------------------------MATCH MEDIA------------------------------------------------------
