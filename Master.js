@@ -739,4 +739,42 @@
 //     })
 // }
 //--------------------------------FINALIZACION CRUD CON indexedDB------------------------------------
-//------------------------------------MATCH MEDIA------------------------------------------------------
+//------------------------------------API MATCH MEDIA------------------------------------------------------
+//es como las medias queries pero con JS
+//mq.matches es acceder a un valor del match media, en inspeccionar en consola lo vas a ver, es como el funcionamiento de objetos, proto etc
+//se utiliza cuando hay que agregar o quitar clases
+// const mq = matchMedia("(max-width: 500px)");
+// const caja = document.querySelector(".caja");
+
+// mq.addEventListener("change",()=>{//change se ejecuta cuando lo pasado en matchmedia sea verdadero o falso!
+// if(mq.matches) caja.classList.replace("caja","responsive-caja");
+// else if(caja.className =="responsive-caja") caja.classList.replace("responsive-caja","caja");
+// })
+//ESTO NOS LO HIZO EL CHAT GPT PARA EL SCROLL COMO LO DE SPARTAN
+// const caja = document.querySelector(".caja");
+
+// // Función para ajustar el tamaño de la caja según el scroll
+// function ajustarTamano() {
+//     if (window.scrollY === 0) {
+//         caja.style.transform = "scale(1.5)"; // Aumenta el tamaño
+//     } else {
+//         caja.style.transform = "scale(1)"; // Tamaño normal
+//     }
+// }
+
+// // Agrega el evento scroll al window
+// window.addEventListener("scroll", ajustarTamano);
+// CSS adicional (opcional):
+// Asegúrate de tener un poco de CSS para definir cómo se verá el div:
+
+// css
+// Copiar código
+// .caja {
+//     width: 100px;
+//     height: 100px;
+//     background-color: red;
+//     transition: transform 0.3s; /* Para un efecto suave */
+// }
+//------------------------------API INTERSECTION OBSERVER------------------------------
+
+

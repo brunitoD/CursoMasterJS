@@ -241,3 +241,31 @@ img{
 } */
 /* -------------------------------------fin filereader + drag y drop ------------------------------ */
 /* ------------------------------------- indexedDB+DragyDrop -------------------------------------- */
+/* --------------------------------- match media ---------------------------------- */
+/* .caja{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    background: blue;
+    font-size: 40px;
+    color: #fff;
+}
+.caja span, .responsive-caja span{
+    margin: auto;
+}
+.responsive-caja{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    background:grey ;
+    font-size: 40px;
+    color:#fff;
+}
+agregado para el scroll como spartan
+.caja2{
+    width: 400px;
+    height: 2500px;
+    background:grey ;
+} */
+ /* intersection observer (para el scroll) */
+
