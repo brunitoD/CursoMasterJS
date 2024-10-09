@@ -776,5 +776,136 @@
 //     transition: transform 0.3s; /* Para un efecto suave */
 // }
 //------------------------------API INTERSECTION OBSERVER------------------------------
+// const cajas = document.querySelectorAll(".caja")
 
+// const verifyVisibility = (entries) =>{//esto nos devuelve un arreglo, por ende son entradas(entries)
+// for(const entry of entries){
+//     if(entry.isIntersecting) console.log("se esta viendo la caja: ",entry.target.textContent)
+// }
+// }
+
+
+// const observer = new IntersectionObserver(verifyVisibility)//(callback,options)=>nosotros le dimos nombre al callback
+// //el options hay que investigarlo, no lo utilizamos
+
+// // observer.observe(caja3)//observe lo que hace es observar el elemento que le digamos
+// for(const caja of cajas){
+//     observer.observe(caja)//aca le decimos que las muestre todas, por la iteracion del for con of(tipo)
+//     console.log(caja)
+// }
+//----------------------------------  ejemplo de uso LAZY LOAD  -----------------
+// let publicacionesJson = [];
+// let contador = 0; // Contador de publicaciones cargadas
+
+// fetch("publicaciones.json")
+//     .then(response => response.json())
+//     .then(data => {
+//         publicacionesJson = data; // Cargar datos
+//         cargarPublicaciones(); // Cargar las primeras publicaciones
+//         observarUltimoElemento(); // Comenzar a observar el último elemento
+//     })
+//     .catch(error => {
+//         console.log('Error en el fetch', error);
+//     });
+
+// const publicacionesContainer = document.querySelector(".publicaciones");
+
+// // Función para cargar más publicaciones
+// const cargarPublicaciones = () => {
+//     const publicacionesALaCargar = publicacionesJson.slice(contador, contador + 5); // Cargar 5 publicaciones el slice nos lo permite
+
+//     publicacionesALaCargar.forEach(publicacion => {
+//         publicacionesContainer.innerHTML += `
+//             <div class="publicacion">
+//                 <h3>Bruno Depetris</h3>
+//                 <p>${publicacion.texto}</p>
+//                 <div class="comentarios">
+//                     <input type="text" class="comentario" placeholder="Introduce un comentario">
+//                     <input type="submit" class="enviar">
+//                 </div>
+//             </div>`;3
+//     });
+
+//     contador += publicacionesALaCargar.length; // Aumentar el contador
+
+//     // Si no hay más publicaciones, dejar de observar
+//     if (contador >= publicacionesJson.length) {
+//         publicacionesContainer.innerHTML+=`<h3 style="margin:40px; text-align:center; font-weight:700;"> no hay mas publicaciones </h3>`
+//         observer.disconnect();//Esto detiene la observación del último elemento, para que no se siga llamando la funcion observarUltimoElemento a continuacion
+//     } else {
+//         observarUltimoElemento(); // Observar el nuevo último elemento
+//     }
+// };
+
+// // Función que se ejecuta cuando se detecta la intersección
+// const cargarMasPublis = (entries) => {//serie de entradas que intersection abserver prporciona cada vez que un elemento entra o sale del viewport
+//     if (entries[0].isIntersecting) {//entries[0] se refiere a la primera (y generalmente única) entrada en la lista de entradas que está siendo notificada,el 0 vendria a ser la entrada que se nos notifica, y si es true, entra al metodo y llama a cargar mas pelis
+//         cargarPublicaciones();
+//     }
+// };
+
+// // Configuración del Intersection Observer
+// const observer = new IntersectionObserver(cargarMasPublis);//cuando en el metodo siguiente se active observer.observe(ultimoLelemento) que en el viewport este visble,se llama a cargarMasPublis y carga 5 mas
+
+// // Observa el último elemento de publicaciones
+// const observarUltimoElemento = () => {
+//     const publicacionElements = document.querySelectorAll(".publicacion");//nos devuelve un nodelist con todos los hijos de .publicacion
+//     if (publicacionElements.length > 0) {//validar que se ha cargado al menos una publicacion para proceder
+//         const ultimoElemento = publicacionElements[publicacionElements.length - 1];//Aquí seleccionamos el último elemento de la NodeList. Dado que la indexación comienza en 0, el último elemento está en la posición publicacionElements.length - 1. Este elemento se almacena en la variable ultimoElemento.
+//         observer.observe(ultimoElemento);//cuando esto se activa, llama a cargarMasPublis, observer esta creado arriab con esa intencion!
+//     }
+// };
+//------------------------     EXPLICACION LAZY LOAD Paso a Paso del Flujo de Ejecución    --------------------------
+// Carga Inicial de Publicaciones:
+
+// El código comienza con la llamada al fetch para cargar los datos desde publicaciones.json.
+// Una vez que se obtiene la respuesta, se convierte a formato JSON y se almacena en publicacionesJson.
+// Se llama a cargarPublicaciones(), que carga las primeras publicaciones y las muestra en la interfaz.
+// Cargar Publicaciones Iniciales:
+
+// Dentro de cargarPublicaciones(), se extraen 5 publicaciones del array publicacionesJson usando slice y se añaden al contenedor de publicaciones (publicacionesContainer).
+// Se incrementa el contador para rastrear cuántas publicaciones se han cargado.
+// Después de cargar las publicaciones iniciales, se llama a observarUltimoElemento().
+// Observar el Último Elemento:
+
+// En observarUltimoElemento(), se selecciona el último elemento de las publicaciones cargadas.
+// Se llama a observer.observe(ultimoElemento), lo que activa el IntersectionObserver para comenzar a monitorear el último elemento.
+// Detección de Intersección:
+
+// Cuando el usuario hace scroll y el último elemento entra en la vista (viewport), se activa el callback cargarMasPublis.
+// Dentro de cargarMasPublis(), se verifica si entries[0].isIntersecting es true. Si es así, se llama a cargarPublicaciones() para cargar más publicaciones.
+// Cargar Más Publicaciones:
+
+// En cargarPublicaciones(), se extraen 5 publicaciones adicionales del array publicacionesJson, comenzando desde el índice del contador.
+// Estas nuevas publicaciones se añaden al contenedor.
+// Se incrementa el contador nuevamente para rastrear cuántas publicaciones se han cargado.
+// Se comprueba si el contador ha alcanzado la longitud total de publicacionesJson. Si es así, se llama a observer.disconnect() para dejar de observar, ya que no hay más publicaciones que cargar.
+// Si aún hay más publicaciones, se llama a observarUltimoElemento() para observar el nuevo último elemento.
+// Repetición del Proceso:
+
+// Este proceso se repite cada vez que el último elemento entra en el viewport, permitiendo que el usuario cargue más publicaciones de manera incremental (lazy loading) mientras navega por la página.
+//-------------------------------FIN lazy load---------------------------------
+//-------------------------------Visibility change API-------------------------
+//esto es para ver si la pestaña actual esta visible
+//si en nuestra web se reproduce un video, le damos pausa al video cuando la propiedad state esta en hidden, y cuando no, lo reaunudamos
+// addEventListener("visibilitychange",(e)=>{
+//     if(e.target.visibilityState == "visible"){
+//         document.write("che rancio, porque abandonas la web?")//msj cuando nos vamos
+//     }else alert("ah volviste")//msj alerta volvemos
+//     console.log(e.target.visibilityState)//nos devuelve hidden o visible
+// })
+//-------------------------------Notifications API--------------------------------
+//es simplemente una forma de enviar notificaciones
+//no funcionaba, porque google no nos lo permitia
+// if(!('notification' in window)){
+//     console.log("las notificaciones no estan disponibles en tu navegador")
+// }
+
+// Notification.requestPermission(()=>{
+//     if(Notification.permission =="granted"){//si nos permite
+//         new Notification("suscribite papu")//le mandamos este msj
+//     }
+// });//pedimos permiso mediante una alerta al usuario
+
+//-------------------------------web workers-------------------------------------
 

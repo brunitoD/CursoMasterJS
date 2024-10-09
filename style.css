@@ -1,11 +1,11 @@
 /*------------- los estilos los agregamos en la parte de clausuras ---------------*/
 
-*{
-    margin:0;
-    padding: 0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-body,h2,div,input,button{
+body{
+    color:#222;
+    font-family:sans-serif;
+    text-align: center;
+} 
+body,h3,div,p, input{
     margin:0;
     padding: 0;
 }
@@ -267,5 +267,94 @@ agregado para el scroll como spartan
     height: 2500px;
     background:grey ;
 } */
- /* intersection observer (para el scroll) */
 
+ /* --------------------------- intersection observer (sirve para el scroll) -----------------------------------*/
+/* 
+ .caja{
+    margin: 20px auto;
+    display: flex;
+    width: 250px;
+    height: 575px;
+    align-items: center;
+    justify-content: center;
+    border: 44px dashed #248;
+    background: #48e;   
+}
+.caja span{
+    margin:auto;
+}
+.caja:nth-child(2){
+    background:#e48 ;
+    border: 44px dashed #824 ;
+}
+.caja:nth-child(3){
+    background:#4e8 ;
+    border: 44px dashed #284 ;
+}
+.caja:nth-child(4){
+    background:#e84 ;
+    border: 44px dashed #842 ;
+}
+.caja:nth-child(5){
+    background:#e48 ;
+    border: 44px dashed #824 ;
+}
+.caja:nth-child(6){
+    background:#e48 ;
+    border: 44px dashed #824 ;
+}
+.caja:nth-child(7){
+    background:#e48 ;
+    border: 44px dashed #824 ;
+}
+.caja:nth-child(8){
+    background:#e48 ;
+    border: 44px dashed #824 ;
+}
+.caja:nth-child(9){
+    background:#e48 ;
+    border: 44px dashed #824 ;
+} */
+
+/*--------------------- LAZY LOAD(carga de productos a medidad que bajamos) --------------------- */
+.publicaciones{
+    text-align:left;
+    margin: 20px;
+    color: #555;
+}
+
+.publicacion p{
+    padding: 10px 20px;
+    border-left: 2px solid #48e;
+}
+
+.publicacion h3{
+    color: #48e;
+    border-bottom: 2px solid #48e;
+    display: inline-block;
+}
+
+.comentarios{
+    display: flex;
+}
+
+.comentarios input {
+     padding: 8px 12px;
+     border: none;
+     background:#48e ;
+     color: white;
+     outline: none;
+}
+
+.comentarios .comentario{
+    flex-grow: 1;
+}
+
+.comentarios .enviar {
+    min-width: 60px;
+    font-weight: 700;
+    font-family: monospace;
+}
+.comentario::placeholder{
+    color: #bcf;
+}
