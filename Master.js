@@ -908,4 +908,46 @@
 // });//pedimos permiso mediante una alerta al usuario
 
 //-------------------------------web workers-------------------------------------
+// tipos de web worker:dedicated worker, shared worker, service worker, abstract worker
+//nos sirven para poder tener como un "segundo plano" en nuestra web, normalmete podemos ejecutar un evento a la vez,
+// con esto podriamos dejar haciendo varias cosas al mismo tiempo en la web!
+//ESTO NOS SIRVE PARA WEBS QUE DEBEN SUBIR COSAS MUY PESADAS Y DEBEMOS DEJAR QUE EL USUARIO SIGA
+//USANDOLA TRANQUILO, CON ESTO LOGRAMOS ESO
+
+//para lo que podemos utilizar el worker es= cuando se haga drop de un video en un div, cuando se presione para subir algo
+//llamar a un addEventListener que ejecute este web worker y nos permita seguir utilizando la web, de lo contrario,
+//el worker no se utilizaria!
+
+// const worker = new Worker ("worker.js")//aca le decimos cual va a ser el archivo que se va a ejecutar
+//                                        //en segundo plano, en nuestro caso creamos worker.js                                              
+// console.log(worker)
+
+// document.querySelector(".boton").addEventListener("click",()=>cargarData(".loadResults"){
+
+// })
+
+// const cargarData = async (div) =>{
+//     const req = await fetch("publicaciones.json");
+//     const res = await req.json();
+//     const arr = res;
+//     document.querySelector(div).innerHTML = arr;
+// }
+// cargarData(".loadResults")
+//SEGUNDO EJEMPLO, este nos sirve para el segundo ejemplo y el primero de lo que hay en el worker.js
+//en este caso mostramos el worker message por consola
+// document.querySelector(".button").addEventListener("click",()=> ejecutarBucle());
+
+// const ejecutarBucle=() =>{
+//     worker.postMessage("hola putita")//aca le podemos pasar cualquier cosa, desde el worker accedemos al mensaje mediante
+//                         //el eventListener
+//     worker.terminate();//para cerrar el worker cuando finaliza de leer el message                     
+// }
+
+//-------------------------------- politica same origin-------------------------------------
+//para modificar el puerto usar xamp en el buscador de nuestra pc, y luego hay que entrar a php init
+// y ahi buscamos donde esta definido el nuemro del puerto
+
+// PARA QUE FUNCIONEN LOS WORKERS DEBEN COINCIDIR EL PROTOCOLO-HOST-PUERTO
+
+
 
