@@ -248,7 +248,7 @@
 //API REST es a la api que se le hacen peticiones y nos devulven dato e informacion
 //APIs comunes, un prompt, un alert, y cosas asi son APIS pequeñas
 
-//-------------------------------------Objeto date----------------------------------------
+//-------------------------------------Objeto Date----------------------------------------
 // console.log(fecha.getMonth()+1);
 //-getDate:fecha
 //-getDay:dia de la semana, funcionamiento:  dom =>0,lun => 1 , mar =>2, mier:3, jue=>4, vie =>5, sab=>6
@@ -257,7 +257,7 @@
 //-getSeconds:segundos del minuto en el que estamos
 //-getHours: hora en la que estamos, redondea para abajo
 //-getMinutes:minuto en el que estamos
-//decirle la fecha: const fecha = new date(2024,08,12)
+//decirle la fecha: const fecha = new Date(2024,08,12)
 //Hora completa: 
 //--------------------------------------CREAMOS RELOJ---------------------------------------------------
 //Ejemplo de uso en un reloj
@@ -948,6 +948,84 @@
 // y ahi buscamos donde esta definido el nuemro del puerto
 
 // PARA QUE FUNCIONEN LOS WORKERS DEBEN COINCIDIR EL PROTOCOLO-HOST-PUERTO
+//-----------------------------------------OBJETO NAVIGATOR----------------------------------------------
+//son interfaces , navigator.connection(mb que tenemos de wifi) y el tipo, que en nuestro caso es 4g,
+//el rtt(Este valor puede ayudar a estimar la latencia de la conexión de red.)
+//navigator.geolocation (ubicacion nuestra) 
+//navigator  =>
+//.hardwareConcurrency: cantidad de nucleos del procesador logico que hay disponibles
+//.languages: idioma actual
+//.languages: cant de idiomas que el usuario comprende
+//.mimeTypes, se labura con node.js, tiene que ver con los headers que enviamos o recibimos(algo asi)
+//.Oneline: nos devuelve si esta online o no
+//.cookieEnabled: si tenemos activadas las cookies (booleano)
+//.permission: permisos del navegador
+//.ServiceWorker: tiene que ver con los workers, trabaja diferente que los dedicated workers echos anteriormente
+//.navigator.vibrate(): produce una vibracion en el celular jajajajajajaj
+//------------------------------------------------Memoization-------------------------------------------
+//es un proceso que acorta tiempos de ejecucion para mejor experiencia del usuario
+//nadie lo usa pero es muy util
+// let cache = [];
+// const memoizer = func=>{
+//     return e=> {
+//     const index = e.toString()
+//     if(cache[index] == undefined){
+//         cache[index] = func(e)
+//     }
+//     return cache[index]
+//     }
+// }
+// const hacerAlgo = num =>{
+//     const a = 20;
+//     const b = 12;
+//     var c = 0;
+//     for(let i = num -1; i >= 0; i--){
+//         for(let j = i - 1; j >= 0; j--){
+//             c+= a*b;
+//         }
+//     }  
+//     return c; 
+// }
 
+// console.log("funcion sin memoizer");
+// const date = new Date();
+// hacerAlgo(90000);
+// console.log(new Date() - date)
 
+// const date2 = new Date();
+// hacerAlgo(90000);
+// console.log(new Date() - date2)
 
+// const date3 = new Date();
+// hacerAlgo(60000);
+// console.log(new Date() - date3)
+
+// const date4 = new Date();
+// hacerAlgo(60000);
+// console.log(new Date() - date4)
+
+// console.log("funcion con memoizer");
+
+// const memo = memoizer(hacerAlgo);
+
+// const date5 = new Date();
+// memo(90000);
+// console.log(new Date() - date5)
+
+// const date6 = new Date();
+// memo(90000);
+// console.log(new Date() - date6)
+
+// const date7 = new Date();
+// memo(60000);
+// console.log(new Date() - date7)
+
+// const date8 = new Date();
+// memo(60000);
+// console.log(new Date() - date8)
+//Si tuvieramos que repetir este proceso muchas veces, lo ideal es crear un memorizador para que cuando se ejecute nuevamente lo mismo,
+//el memorizador nos permite guardar el primer uso de algo para luego mostrarlo enseguida(como un cache)
+// const Date = new Date();
+// hacerAlgo(60000)
+// console.log(new Date() - Date)}
+//--------------------------------------------------Caché--------------------------------------------
