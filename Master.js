@@ -1029,3 +1029,46 @@
 // hacerAlgo(60000)
 // console.log(new Date() - Date)}
 //--------------------------------------------------Caché--------------------------------------------
+//Utilizamos el cacheStorage que se encuentra en aplicattion al igaulq ue indexedDB y localStorage sessionStorage
+//el cache nos devulve una promesa TRABAJA CON PROMESAS,HAY QUE USAR THEN,entonces utilizamos then() para descomprimirla 
+// caches.open("archivos-guardados2").then(cache =>{
+//     //si cache existe, le decimos que guarder "index.html"
+//     // cache.add("index.html")
+//     cache.addAll(["index.html","style.css","master.js"])//con el addAll guardamos muchos
+//     console.log(cache)
+// })
+
+//------------esto nos devuleve la consulta al cache, el match devuelve especifiacemnte un archivo en cache, y
+//el matchAll devulve un arreglo(de un archivo o mas)
+// caches.open("archivos-guardados2").then(cache => {//cache es el resultado de la promesa resuelta
+//     cache.matchAll("index.html").then(responses => {//responses son los datos de la promesa resuelta, para descomprimirlos podemos usar response.data o algo, sino usamos .text()
+//         console.log("lo que recibimos del then, descomprimiendo no:", responses)
+//         responses.forEach(response => {
+//             response.text().then(data => {//aca descomprimimos la respuesta
+//                 console.log("contenido descomprimido", data)//aca ya nos devuelve el html descomprimido
+//             })
+//         })
+//     })
+// })
+//el match es como hacer un fetch al cache por lo que veo
+//match: response {type: blablabla}
+//matchAll: [response]
+//si hay mas de un archivo con el mismo nombre, simplemente nos devuelve un array con ambos
+//----------------put(actualizar o agregar, se usa add para ambas)
+//no es necesario, con add estamos listos, pero el put tiene sus funcionalidades que lo hacen mejor para ciertas cosas
+// caches.open("archivos-guardados2").then(cache => {
+//     fetch("index.html").then(response =>{
+//         cache.put("index.html",res)
+//     })
+// })
+//----------------delete(borrar un elemento del cache)
+// caches.open("archivos-guardados").then(cache => {
+//     cache.delete("index.html")
+// })
+//------------------keys(traer toda la data del cache, como match all pero mas completo)
+// caches.open("archivos-guardados").then(cache => {
+//     cache.addAll(["index.html","master.js"])
+//     cache.keys().then(res =>{//res son las respuestas que nos devuolve de la promesa(cache) resulta
+//         console.log(res)//nos va a mostrar los objetos y su llave(ID)
+//     })
+// })
