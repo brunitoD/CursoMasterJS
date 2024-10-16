@@ -823,7 +823,7 @@
 //                     <input type="text" class="comentario" placeholder="Introduce un comentario">
 //                     <input type="submit" class="enviar">
 //                 </div>
-//             </div>`;3
+//             </div>`;
 //     });
 
 //     contador += publicacionesALaCargar.length; // Aumentar el contador
@@ -1072,3 +1072,25 @@
 //         console.log(res)//nos va a mostrar los objetos y su llave(ID)
 //     })
 // })
+//----------------------------------------Service Worker---------------------------------------
+// es un archivo javascript comun y corriente, que lo que hace es estar a la escucha de un monton de sucesos y hace cosas con el
+//Lo que hace es interceptar todas las peticiones de un servidor (navegador => worker => servidor web) y al reves para la respuesta que nos de
+//podemos hacer un chat en tiempo real con service worker, como un whatsapp hs 7:58
+// console.log(navigator.serviceWorker);//validar que el navegador lo soporte
+// navigator.serviceWorker.register("sw.js");//creamos un service worker
+// //ademas, debemos crear el archivo por nuestra cuenta "sw.js"(cualquiernombre.js) en nuestro caso
+// //creamos con ese nombre
+// //lo podemos ver en application/Service workers (a la izquierda arriba de storage)
+// //el service worker solo se instala una vez, y se activa cada vez que iniciamos la web,
+// //para eliminarlo vamos a application/Service workers y presionamos "unregister"
+
+
+// //mandar un mensaje al service worker, del otro lado hay codigo que lo recibe
+// //validamos activo en el worker(ready), devuelve promesa, usamos then, y luego le pasamos el msj una vez confirmado "activo"
+// navigator.serviceWorker.ready.then(res => res.active.postMessage("hola bro todo bien?"))//enviamos al worker
+// //verificar que el worker nos responda:
+// navigator.serviceWorker.addEventListener("message", e =>{//recibimos del worker
+//     console.log("msj recibido del service worker")
+//     console.log(e.data)
+// })
+//Master.js seria el navegador, y sw.js seria el worker
