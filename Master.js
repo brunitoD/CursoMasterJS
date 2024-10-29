@@ -1094,3 +1094,4 @@
 //     console.log(e.data)
 // })
 //Master.js seria el navegador, y sw.js seria el worker
+
