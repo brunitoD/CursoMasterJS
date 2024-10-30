@@ -86,8 +86,8 @@
 // objeto.saludar();
 // console.log(objeto.nombre);
 //_____________________________________THIS_____________________________________
-//explicacion de this (esta tomado del ejercicio de arriba) 
-//En JavaScript, `this` dentro de un método hace referencia al objeto en el que 
+//explicacion de this (esta tomado del ejercicio de arriba)
+//En JavaScript, `this` dentro de un método hace referencia al objeto en el que
 //el método está definido)... `this.nombre` dentro del método saludar se refiere a la
 //propiedad `nombre` del mismo objeto `objeto`. Así, `this` permite acceder a las
 //propiedades del objeto, EN CAMBIO en las funciones flecha `()=>` THIS NO EXISTE!
@@ -98,16 +98,16 @@
 //aca usamos this pasandole el valor por fuera, ya que WINDOW ES LOS MISMO QUE THIS!
 // const objeto = {
 //     nombre : "bruno",
-//     saludar : ()=> {console.log(`hola ${this.nombre}`)}//por si solo muestra 
+//     saludar : ()=> {console.log(`hola ${this.nombre}`)}//por si solo muestra
 //     //"hola undefined", ya que this no funciona en funcion flecha
-//     //agregandole un nombre en la propiedad window podemos usarlo 
+//     //agregandole un nombre en la propiedad window podemos usarlo
 // }
 // window.nombre = "bruno";
 // objeto.saludar();
-//EXPLICACION FINAL: no se usa funcion flecha como metodo dentro de un objeto, ya 
+//EXPLICACION FINAL: no se usa funcion flecha como metodo dentro de un objeto, ya
 //que no podemos acceder a las propiedades del mismo con this.
 //-------------------------- CONSTRUCTORES CON FUNCIONES ---------------------------
-// function constructorPersona(nombre, apellido) { 
+// function constructorPersona(nombre, apellido) {
 //     this.Nombre = nombre;
 //     this.Apellido = apellido
 // }//el this lo convierte automaticamente la funcion en un constructor
@@ -115,7 +115,7 @@
 // console.log(persona.Nombre,persona.Apellido
 //la funcion flecha no funciona como contructor!!! por eso hicimos lo anterior
 //_________________________Funcion Recusriva___________________________
-// es una funcion que se llama asi misma     
+// es una funcion que se llama asi misma
 // "use strict";
 // const validarEdad = (msg)=>{
 // 	let edad;
@@ -148,7 +148,7 @@
 // saludarFuncional();//mostramos lo guardado!
 //--------------------------------EVENTO CUANDO CARGA LA PAGINA-----------------------------------------
 //aca estamos haciendo que cuando se cargue la pagina se muestre el nombre cargado en la clausura
-// AddEventListener("load",saludarFuncional); 
+// AddEventListener("load",saludarFuncional);
 //---------------------------------SIN clausuras-----------------------------------------
 // const cambiarTamaño = (tamaño)=>{
 //     document.querySelector(".texto").style.fontSize = `${tamaño}px`
@@ -222,7 +222,7 @@
 //               console.log("Entrada habilitada") )
 // 		    : console.log("sos menor de edad, AFUERA");
 //EL OPERADOR CONDICIONAL TERNARIO, CONSUME MENOS RECURSOS (muy poco, no significativo)
-//el if-else sigue siendo mejor, ya que nos permite hacer condiciones mas gigantes sin 
+//el if-else sigue siendo mejor, ya que nos permite hacer condiciones mas gigantes sin
 //darnos problemas de legibilida
 //------------------------------SPREAD(...res)-----------------------------------
 //agregar un array a otro
@@ -258,7 +258,7 @@
 //-getHours: hora en la que estamos, redondea para abajo
 //-getMinutes:minuto en el que estamos
 //decirle la fecha: const fecha = new Date(2024,08,12)
-//Hora completa: 
+//Hora completa:
 //--------------------------------------CREAMOS RELOJ---------------------------------------------------
 //Ejemplo de uso en un reloj
 //hecho por mi, nos falta agregar 0 si le falta
@@ -281,7 +281,7 @@
 //     return num;
 // }
 
-// const Reloj = ()=>{   
+// const Reloj = ()=>{
 //     const Hora = new Date();
 //     let hr = addCeros(Hora.getHours());
 //     let min = addCeros(Hora.getMinutes());
@@ -293,7 +293,7 @@
 // setInterval(Reloj,1000);
 //__________________________________LOCAL STORAGE Y SESSION STORAGE______________________________________
 //SessionsStorage: informacion que se almacena en la sesion, es decir, cuando actualizamos la pag se desaparece
-//LocalStorage: lo contrario a SessionStorage 
+//LocalStorage: lo contrario a SessionStorage
 
 //creamos productos en el carrito (llave/valor)
 //los productos se guardan aunque cargemos, para eliminarlos debemos programarlo
@@ -369,7 +369,7 @@
 //     console.log(e.dataTransfer.getData("nombreX"))        //.circulo, pero si trabajamo con varios objetos
 //                                                           //esto seria un problema, asi que debemos hacerlo
 //                                                           //asi o con id, que es mas seguro.
-//                                                           //esto esta haciendo que cuando mostremos 
+//                                                           //esto esta haciendo que cuando mostremos
 //                                                           //aparezca "circulo" en la consola, que es
 //                                                           //la clase
 // })//cuando agarramos
@@ -383,7 +383,7 @@
 //     e.preventDefault();
 //     //este agregado hace que no aparezca como bloqueado al querer soltar dentro del rectangulo
 //     console.log(2)});
-// //DRAGOVER: tiene la propiedad que drop necesita para saber si el circulo puede o 
+// //DRAGOVER: tiene la propiedad que drop necesita para saber si el circulo puede o
 // //no soltarse en el rectangulo, en este caso no, entonces debemos crear codigo extra en el drop
 // rectangulo.addEventListener("drop",(e)=>console.log(e.dataTransfer.getData("nombreX")));
 // //verifica cuando se suelta, y la parte de de get, esta tomando y guardando en el rectangulo
@@ -398,7 +398,7 @@
 // })
 // zona.addEventListener("drop",(e)=>{
 //     let n = e.dataTransfer.getData("textura");//aca recibimos la data
-//     zona.style.background = `url("imagenes/textura${n}.png")`;//el estilo que le damos a la zona es el que recibimos 
+//     zona.style.background = `url("imagenes/textura${n}.png")`;//el estilo que le damos a la zona es el que recibimos
 // })
 // for (let i = 1; i <document.querySelector(".texturas").children.length + 1 ; i++){
 //     document.querySelector(`.textura${i}`).addEventListener("dragstart",(e)=> transferirTextura(i,e))
@@ -419,7 +419,7 @@
 
 // geolocation.getCurrentPosition(posicion);
 //consulta si nos deja conocer nuestra ubicacion
-//esto realizado nos devuelve nuestra ubicacion exacta en consola, luego pegamos en orden 
+//esto realizado nos devuelve nuestra ubicacion exacta en consola, luego pegamos en orden
 //buscando con google maps y nos muestra exactamente el lugar, una locura!
 // const geolocation = navigator.geolocation;
 
@@ -468,14 +468,14 @@
 // archivo.addEventListener("change",(e)=>{//change es la escucha/evento al cambiar un input
 //     // e.target.files//obtener el valor cuando son muchos archivos
 //     leerArchivo(archivo.files[0])//archivo.files[0] obtener el valor del archivo, para pocos archivos
-//                                  //la funcion es creada para leer dicho archivo                               
+//                                  //la funcion es creada para leer dicho archivo
 // })
 
 // const leerArchivo = (ar) => {//ar es lo que recibimos arriba
 //     const reader = new FileReader
 //     reader.readAsText(ar);//leemos el archivo que recibimos y se guarda en reader
 //     const texto = document.querySelector(".cargar-texto")
-//     reader.addEventListener("load",(e)=> 
+//     reader.addEventListener("load",(e)=>
 //         texto.innerHTML = `${e.currentTarget.result}`
 //     );
 
@@ -489,7 +489,7 @@
 
 // const archivo = document.getElementById('archivo')
 // archivo.addEventListener("change",(e)=>{
-//     leerArchivo(archivo.files)                                                          
+//     leerArchivo(archivo.files)
 // })
 
 // const leerArchivo = (ar) =>
@@ -500,7 +500,7 @@
 //     {
 //         const reader = new FileReader();
 //         reader.readAsText(ar[i]);
-//         reader.addEventListener("load",(e)=> 
+//         reader.addEventListener("load",(e)=>
 //         {
 
 //             // const obj = JSON.parse(e.currentTarget.result)
@@ -509,7 +509,7 @@
 //             //esten encapsuladas, usamos simplemente:
 //             const texto = document.querySelector(".cargar-texto")
 //             const informacion = e.currentTarget.result;
-//             texto.innerHTML += `<b style="color:red;">Texto insertado:</b><br> ${informacion}<br><br>`;            
+//             texto.innerHTML += `<b style="color:red;">Texto insertado:</b><br> ${informacion}<br><br>`;
 //         });
 //     }
 // }
@@ -530,10 +530,10 @@
 //         {
 //             const reader = new FileReader();
 //             reader.readAsDataURL(ar[i]);
-//             reader.addEventListener("load",(e)=> 
+//             reader.addEventListener("load",(e)=>
 //             {
 //                 let newImg = `<img src='${e.currentTarget.result}'>`;
-//                 document.querySelector(".resultado").innerHTML += newImg;//a medida que las lee las suma al contenedor       
+//                 document.querySelector(".resultado").innerHTML += newImg;//a medida que las lee las suma al contenedor
 //             });
 //         }
 //     }
@@ -545,7 +545,7 @@
 //     //PARA TEXTO
 //     // reader.readAsText(ar);
 //     // reader.addEventListener("load", e=>{
-//     //     document.querySelector(".resultado").textContent = e.currentTarget.result//currentTarget es el objeto que genera el evento(txt,pdf,etc), y el result es lo que FileReader leyo de el, el textcontent= seria que el contenido va a ser cambiado por lo que lea FileReader 
+//     //     document.querySelector(".resultado").textContent = e.currentTarget.result//currentTarget es el objeto que genera el evento(txt,pdf,etc), y el result es lo que FileReader leyo de el, el textcontent= seria que el contenido va a ser cambiado por lo que lea FileReader
 //     // })
 //     //PARA IMAGENES
 //     // reader.readAsDataURL(ar);
@@ -602,7 +602,7 @@
 //     })
 // }
 //------------------------------indexedDB -CRUD----------------------------------------------
-//EXPLICAICIONES: 
+//EXPLICAICIONES:
 //upgradeneeded=> se crea la BD en inspeccionar/application/indexedDB/nombreTabla
 //si la BD ya esta creado no hace el evento upgradeneeded, hace el succes tirando su msj y viceversa
 //en la bd, los object stores son almacenes de objetos, son como tablas)
@@ -637,7 +637,7 @@
 
 //hasta aca solo creamos y verificamos la creacion de la base de datos + creacio  de un almacen de objetos(Como una tabla)
 //--------creacion del CRUD (ABM)------
-//1_CREATE 
+//1_CREATE
 // const objeto ={bruno:"depetris"}
 // addObjetos(objeto)
 // const addObjeto = objeto => {
@@ -658,7 +658,7 @@
 //     document.querySelector(".nombre").innerHTML = "";
 
 //     const cursor = objectStore.openCursor();//se crea para la lectura en el evento succes, se lee si o si una vez hasta siendo null el resultado
-//     //esto funciona para que una vez que dejaron de haber objetos creados pase a null el valor de cursor y deje de iterar, ya que de otra forma 
+//     //esto funciona para que una vez que dejaron de haber objetos creados pase a null el valor de cursor y deje de iterar, ya que de otra forma
 //     //nos muestra iteracion infinita de los mismos objetos
 //     // const fragment = document.createDocumentFragment();
 //     cursor.addEventListener("success", () => {
@@ -714,7 +714,7 @@
 //     </div>
 //     <div style="display:flex">
 //         <h2>Nombre:</h2>
-//         <h2 class="nombre-editable" contenteditable="true" spellcheck="false">${name.nombre}</h2> 
+//         <h2 class="nombre-editable" contenteditable="true" spellcheck="false">${name.nombre}</h2>
 //     </div>
 //     <div class="options">
 //         <button class="posible">Guardar</button>
@@ -729,7 +729,7 @@
 //     const btnEliminar = nuevaEntrada.querySelector(".delete")
 //------guardar lo modificado
 //     btnGuardar.addEventListener("click", () => {
-//         modificarObjeto(id, { nombre: h2.textContent });      
+//         modificarObjeto(id, { nombre: h2.textContent });
 //     });
 //------guardar la eliminacion
 //     btnEliminar.addEventListener("click",()=>{
@@ -919,7 +919,7 @@
 //el worker no se utilizaria!
 
 // const worker = new Worker ("worker.js")//aca le decimos cual va a ser el archivo que se va a ejecutar
-//                                        //en segundo plano, en nuestro caso creamos worker.js                                              
+//                                        //en segundo plano, en nuestro caso creamos worker.js
 // console.log(worker)
 
 // document.querySelector(".boton").addEventListener("click",()=>cargarData(".loadResults"){
@@ -940,7 +940,7 @@
 // const ejecutarBucle=() =>{
 //     worker.postMessage("hola putita")//aca le podemos pasar cualquier cosa, desde el worker accedemos al mensaje mediante
 //                         //el eventListener
-//     worker.terminate();//para cerrar el worker cuando finaliza de leer el message                     
+//     worker.terminate();//para cerrar el worker cuando finaliza de leer el message
 // }
 
 //-------------------------------- politica same origin-------------------------------------
@@ -951,7 +951,7 @@
 //-----------------------------------------OBJETO NAVIGATOR----------------------------------------------
 //son interfaces , navigator.connection(mb que tenemos de wifi) y el tipo, que en nuestro caso es 4g,
 //el rtt(Este valor puede ayudar a estimar la latencia de la conexión de red.)
-//navigator.geolocation (ubicacion nuestra) 
+//navigator.geolocation (ubicacion nuestra)
 //navigator  =>
 //.hardwareConcurrency: cantidad de nucleos del procesador logico que hay disponibles
 //.languages: idioma actual
@@ -983,8 +983,8 @@
 //         for(let j = i - 1; j >= 0; j--){
 //             c+= a*b;
 //         }
-//     }  
-//     return c; 
+//     }
+//     return c;
 // }
 
 // console.log("funcion sin memoizer");
@@ -1030,7 +1030,7 @@
 // console.log(new Date() - Date)}
 //--------------------------------------------------Caché--------------------------------------------
 //Utilizamos el cacheStorage que se encuentra en aplicattion al igaulq ue indexedDB y localStorage sessionStorage
-//el cache nos devulve una promesa TRABAJA CON PROMESAS,HAY QUE USAR THEN,entonces utilizamos then() para descomprimirla 
+//el cache nos devulve una promesa TRABAJA CON PROMESAS,HAY QUE USAR THEN,entonces utilizamos then() para descomprimirla
 // caches.open("archivos-guardados2").then(cache =>{
 //     //si cache existe, le decimos que guarder "index.html"
 //     // cache.add("index.html")
@@ -1095,56 +1095,3 @@
 // })
 //Master.js seria el navegador, y sw.js seria el worker
 //----------------------------COOKIES-------------------------------------
-//Teoria: las cookies se conforman de: Clave/valor;atr;atr;atr ∞
-// en la pestaña aplicattion/Cookies tenemos un tipo panel, en el podremos ver el name(nombre) value(valor), todos los demas son parametros que podemos pasarle/darle a la cookie
-//las cookies nunca pueden llevar el mismo nombre, osea, user-1, luego debe tener otro nombre, user no lo podemos volver a repetir
-//desde el frontend solamente vamos a poder ingresar al value y al name de la cookie
-// Crear varias cookies con nombres únicos y valores
-// document.cookie = "user-dalto=value1; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-// document.cookie = "user2-bruno=value2; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-// document.cookie = "user3-guille=value3; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-// document.cookie = "user4-pan=value4; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-
-// // Leer las cookies
-// console.log(document.cookie);//se muestran: cookie; cookie; cookie;
-
-// // Leer las cookies
-
-// document.cookie = "user4-pan=value4; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-// //explicacion: nombre=valor; ruta ; cuando expira la cookie, fecha y horario de expiracion
-//------crear cookies completa en funcion:
-// const crearCookie = (name, exp, path, age) => {
-//     document.cookie = `;${name};expires=${exp};path=${path};age=${age}`
-// }
-// crearCookie("usuario=bruno","Mon 26 Apr 2021 12:00:00 UTC","index.html")
-//el path es donde queremos que se almacene
-//-----------crear cookie mas basica pero que dalto recimienda=
-//tambien creamos una funcion que nos haga la fecha para mejor arquitectura del programa
-// const newFechaUTC = dias => {
-//     let fecha = new Date();//obtener la fecha actual
-//     fecha.setTime(fecha.getTime() + dias * 1000 * 60 * 60 * 24)//aca sumamos los segundos del dia, para luego agregarselos a fecha actual!
-//     //ademas de que, dias lo vamos a recibir como parametro, osea pueden ser muchos dias que debemos agregarle los segundos
-//     return fecha.toUTCString();
-// }
-
-// const crearCookieRecomendada = (name, dias) => {
-//     let expires = newFechaUTC(dias)
-//     document.cookie = `${name};expires=${expires}`
-// }
-// crearCookieRecomendada("usuario=oscar", "4");// crear la cookie desde codigo
-// //el split separa la cadena en los puntos que le indiquemos, como en este caso le indicamos primero el ;. nos lo va a separar en un array por partes(crear un array con cada cookie individual)
-// //tambien necesitamos obtener el valor del dato, entonces usamos el segundo split para separar dato=valor y obtener la pos[1] que seria el valor del dato
-// const obtenerCookie = cookieName => {
-//     let cookies = document.cookie;
-//     cookies = cookies.split(";");
-//     for (let i = 0; cookies.length > i; i++) {
-//         let cookie = cookies[i].trim()//cuando creamos muchas cookies se le ponen como predeterminado espacio en blanco al principio, por eo lo removemos
-//         if (cookie.startsWith(cookieName)) {
-//             return cookie.split("=")[1]//
-//         }
-//         else{
-//             return "no hay cookies disponibles, gloton"
-//         }
-//     }
-// }
-// //poniendo esto: newFechaUTC(4) en consola, vamos a ir sacando el calculo del dia actual mas los puestos dentro de la funcion, en este caso 4
