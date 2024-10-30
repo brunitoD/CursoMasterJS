@@ -387,10 +387,24 @@ button {
     border: none;
     border-radius: 12px;
 } */
-body,div{
+/* body,div{
     margin: 0;
     padding: 0;
 }
-#canvas{
-    border:1px solid blue;
+body{
+    background-color:#ededed ;
 }
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+#canvas{
+    border:3px solid #48e;
+    border-radius: 5px;
+}
+.editor{
+    background: #fff;
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+} */

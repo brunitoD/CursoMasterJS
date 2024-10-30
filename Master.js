@@ -1117,8 +1117,8 @@
 //-------------------------------------------OBJETO CANVAS----------------------------------------------
 //sirve para crear todo tipo de cosas (por ejemplo juegos)
 //si miramos en consola el elemento canvas, no nos agrega ningun elemento, solamente es de visualizacion
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext("2d");// ahora todo se le aplica al contexto, porque los graficos se ele aplican al contexto =>ctx
+// const canvas = document.getElementById('canvas');
+// const ctx = canvas.getContext("2d");// ahora todo se le aplica al contexto, porque los graficos se ele aplican al contexto =>ctx
 // //el estilo siempre va arriba!!! el stokeStyle,fillStyle!
 // ctx.lineWidth = "3"//grosor del borde 
 // ctx.strokeStyle = "#48e";
@@ -1138,4 +1138,39 @@ const ctx = canvas.getContext("2d");// ahora todo se le aplica al contexto, porq
 // ctx.arc(120,120,100,10,40);
 // ctx.strokeStyle = "#88e";
 // ctx.stroke();
+// -------------------------------- CREAR PAINT -----------------------------------------
+// const canvas = document.getElementById("canvas");
+// const dif = canvas.getBoundingClientRect();
+// const ctx = canvas.getContext("2d");
 
+// let painting, color, difX, difY;
+
+// canvas.addEventListener("mousedown", (e) => {
+//     difX = e.clientX - dif.left;
+//     difY = e.clientY - dif.top;
+//     painting = true;
+//     color = document.getElementById("color").value;
+// });
+
+// canvas.addEventListener("mousemove", e => {
+//     if (painting) {
+//         const linewidth = document.getElementById("lw").value; // Obtener el grosor en cada movimiento
+//         dibujar(difX, difY, e.clientX - dif.left, e.clientY - dif.top, linewidth);
+//         difX = e.clientX - dif.left;
+//         difY = e.clientY - dif.top;
+//     }
+// });
+
+// canvas.addEventListener("mouseup", () => {
+//     painting = false; // Detener el dibujo al soltar el mouse
+// });
+
+// const dibujar = (x1, y1, x2, y2, linewidth) => {
+//     ctx.strokeStyle = color;
+//     ctx.lineWidth = linewidth; // Utiliza el grosor pasado como argumento
+//     ctx.moveTo(x1, y1);
+//     ctx.lineTo(x2, y2);
+//     ctx.stroke();
+//     ctx.beginPath(); // Inicia un nuevo camino para la siguiente línea
+//     ctx.moveTo(x2, y2); // Mueve a la nueva posición
+// };
