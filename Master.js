@@ -1094,4 +1094,22 @@
 //     console.log(e.data)
 // })
 //Master.js seria el navegador, y sw.js seria el worker
-//----------------------------COOKIES-------------------------------------
+//------------------------------objeto sreen------------------------------------
+//esto nos muestra todas las medidas de la pantalla actual, (actualizar cada vez que se usa)
+let AnchoTotal = screen.width;
+let Alturatotal = screen.height;
+
+let AnchoDisponible = screen.availWidth;
+let AltoDisponible = screen.availHeight;
+
+let Resolucion = screen.pixelDepth 
+let Profundidad = screen.colorDepth 
+
+console.log(`width: ${AnchoTotal}`);
+console.log(`height: ${Alturatotal}`);
+
+console.log(`availWidth: ${AnchoDisponible}`);
+console.log(`heightWidth: ${AltoDisponible}`);
+
+console.log(`pixelDepth: ${Resolucion}`);
+console.log(`colorDepth: ${Profundidad}`);

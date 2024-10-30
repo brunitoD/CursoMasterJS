@@ -24,53 +24,53 @@
 // el path es donde queremos que se almacene
 // -----------crear cookie mas basica pero que dalto recimienda=
 // tambien creamos una funcion que nos haga la fecha para mejor arquitectura del programa
-//-------------------------------LO QUE SIGUE DE CODIGO ES LO QUE USAMOS PARA MANEJAR LAS COOKIES-------------------------------
-const newFechaUTC = dias => {
-    let fecha = new Date();//obtener la fecha actual
-    fecha.setTime(fecha.getTime() + dias * 1000 * 60 * 60 * 24)//aca sumamos los segundos del dia, para luego agregarselos a fecha actual!
-    //ademas de que, dias lo vamos a recibir como parametro, osea pueden ser muchos dias que debemos agregarle los segundos
-    return fecha.toUTCString();
-}
+//-------------------------------LO QUE SIGUE DE CODIGO ES LO QUE USAMOS PARA MANEJAR LAS COOKIES, lo que usamos para el ejemplo!!!-------------------------------
+// const newFechaUTC = dias => {
+//     let fecha = new Date();//obtener la fecha actual
+//     fecha.setTime(fecha.getTime() + dias * 1000 * 60 * 60 * 24)//aca sumamos los segundos del dia, para luego agregarselos a fecha actual!
+//     //ademas de que, dias lo vamos a recibir como parametro, osea pueden ser muchos dias que debemos agregarle los segundos
+//     return fecha.toUTCString();
+// }
 
-const crearCookieRecomendada = (name, dias) => {
-    let expires = newFechaUTC(dias)
-    document.cookie = `${name};expires=${expires}`
-}
-// crearCookieRecomendada("usuario=oscar", "4");// crear la cookie desde codigo
-//el split separa la cadena en los puntos que le indiquemos, como en este caso le indicamos primero el ;. nos lo va a separar en un array por partes(crear un array con cada cookie individual)
-//tambien necesitamos obtener el valor del dato, entonces usamos el segundo split para separar dato=valor y obtener la pos[1] que seria el valor del dato
-const obtenerCookie = cookieName => {
-    let cookies = document.cookie;
-    cookies = cookies.split(";");
-    for (let i = 0; cookies.length > i; i++) {
-        let cookie = cookies[i].trim()//cuando creamos muchas cookies se le ponen como predeterminado espacio en blanco al principio, por eo lo removemos
-        if (cookie.startsWith(cookieName)) {
-            return cookie.split("=")[1]//
-        }
-    }
-            return "no hay cookies disponibles, gloton"
-}
+// const crearCookieRecomendada = (name, dias) => {
+//     let expires = newFechaUTC(dias)
+//     document.cookie = `${name};expires=${expires}`
+// }
+// // crearCookieRecomendada("usuario=oscar", "4");// crear la cookie desde codigo
+// //el split separa la cadena en los puntos que le indiquemos, como en este caso le indicamos primero el ;. nos lo va a separar en un array por partes(crear un array con cada cookie individual)
+// //tambien necesitamos obtener el valor del dato, entonces usamos el segundo split para separar dato=valor y obtener la pos[1] que seria el valor del dato
+// const obtenerCookie = cookieName => {
+//     let cookies = document.cookie;
+//     cookies = cookies.split(";");
+//     for (let i = 0; cookies.length > i; i++) {
+//         let cookie = cookies[i].trim()//cuando creamos muchas cookies se le ponen como predeterminado espacio en blanco al principio, por eo lo removemos
+//         if (cookie.startsWith(cookieName)) {
+//             return cookie.split("=")[1]//
+//         }
+//     }
+//             return "no hay cookies disponibles, gloton"
+// }
 
-if(obtenerCookie("acceptedCookies") !== "si"){
-    setTimeout(()=>{
-    document.querySelector(".contenedor-aviso-cookie").Style.zIndex="10";
-    document.querySelector(".contenedor-aviso-cookie").Style.opacity="1";
-    document.getElementById("accept").addEventListener("click", ()=>{
-        crearCookieRecomendada("acceptedCookies=si",30 )//La línea crearCookie("acceptedCookies=si", 30) está creando una cookie llamada acceptedCookies y asignándole el valor si. Aquí está el desglose:
-        document.querySelector(".contenedor-aviso-cookie").Style.opacity = "0";
-        setTimeout(()=>{
-            document.querySelector("contenedor-aviso-cookie").Style.zIndex = "-1";
-        },1000)
-    })
-    document.getElementById("deny").addEventListener("click",()=>{
-        crearCookieRecomendada("acceptedCookies=no",30);
-        document.querySelector(".contenedor-aviso-cookie").Style.opacity = "0";
-        setTimeout(()=>{
-            document.querySelector("contenedor-aviso-cookie").Style.zIndex = "-1";
-        },1000)
-    })
-    },200)
-}
+// if(obtenerCookie("acceptedCookies") !== "si"){
+//     setTimeout(()=>{
+//     document.querySelector(".contenedor-aviso-cookie").Style.zIndex="10";
+//     document.querySelector(".contenedor-aviso-cookie").Style.opacity="1";
+//     document.getElementById("accept").addEventListener("click", ()=>{
+//         crearCookieRecomendada("acceptedCookies=si",30 )//La línea crearCookie("acceptedCookies=si", 30) está creando una cookie llamada acceptedCookies y asignándole el valor si. Aquí está el desglose:
+//         document.querySelector(".contenedor-aviso-cookie").Style.opacity = "0";
+//         setTimeout(()=>{
+//             document.querySelector("contenedor-aviso-cookie").Style.zIndex = "-1";
+//         },1000)
+//     })
+//     document.getElementById("deny").addEventListener("click",()=>{
+//         crearCookieRecomendada("acceptedCookies=no",30);
+//         document.querySelector(".contenedor-aviso-cookie").Style.opacity = "0";
+//         setTimeout(()=>{
+//             document.querySelector("contenedor-aviso-cookie").Style.zIndex = "-1";
+//         },1000)
+//     })
+//     },200)
+// }
 
 
 //MAS TEORIA:
