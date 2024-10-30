@@ -387,3 +387,10 @@ button {
     border: none;
     border-radius: 12px;
 } */
+body,div{
+    margin: 0;
+    padding: 0;
+}
+#canvas{
+    border:1px solid blue;
+}

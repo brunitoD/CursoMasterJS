@@ -1096,20 +1096,46 @@
 //Master.js seria el navegador, y sw.js seria el worker
 //------------------------------objeto sreen------------------------------------
 //esto nos muestra todas las medidas de la pantalla actual, (actualizar cada vez que se usa)
-let AnchoTotal = screen.width;
-let Alturatotal = screen.height;
+// let AnchoTotal = screen.width;
+// let Alturatotal = screen.height;
 
-let AnchoDisponible = screen.availWidth;
-let AltoDisponible = screen.availHeight;
+// let AnchoDisponible = screen.availWidth;
+// let AltoDisponible = screen.availHeight;
 
-let Resolucion = screen.pixelDepth 
-let Profundidad = screen.colorDepth 
+// let Resolucion = screen.pixelDepth 
+// let Profundidad = screen.colorDepth 
 
-console.log(`width: ${AnchoTotal}`);
-console.log(`height: ${Alturatotal}`);
+// console.log(`width: ${AnchoTotal}`);
+// console.log(`height: ${Alturatotal}`);
 
-console.log(`availWidth: ${AnchoDisponible}`);
-console.log(`heightWidth: ${AltoDisponible}`);
+// console.log(`availWidth: ${AnchoDisponible}`);
+// console.log(`heightWidth: ${AltoDisponible}`);
 
-console.log(`pixelDepth: ${Resolucion}`);
-console.log(`colorDepth: ${Profundidad}`);
+// console.log(`pixelDepth: ${Resolucion}`);
+// console.log(`colorDepth: ${Profundidad}`);
+
+//-------------------------------------------OBJETO CANVAS----------------------------------------------
+//sirve para crear todo tipo de cosas (por ejemplo juegos)
+//si miramos en consola el elemento canvas, no nos agrega ningun elemento, solamente es de visualizacion
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext("2d");// ahora todo se le aplica al contexto, porque los graficos se ele aplican al contexto =>ctx
+// //el estilo siempre va arriba!!! el stokeStyle,fillStyle!
+// ctx.lineWidth = "3"//grosor del borde 
+// ctx.strokeStyle = "#48e";
+// ctx.fillStyle = "#48e"
+// ctx.strokeRect(30,50,400,200);//el 30 es en el eje X,la diferencia desde el rectangulo canvas al contexto|| el 50 en el eje Y, son 50 pixeles por debajo del borde del rectangulo canvas||los otros dos son el width y el height que querramos tener
+// ctx.fillRect(10,20,400,200);//son las mismas medidas, nomas que queda superpuesto mas arriba a la izquierda del contenedor que creamos arriba(el strokeRect)
+// ctx.lineTo(100,300);//aca creamos dos puntos en el eje
+// ctx.lineTo(100,250);//otra linea(punto en el eje cartesiano)
+// ctx.stroke();
+// ctx.lineTo(350,300);//aca creamos dos puntos en el eje
+// ctx.lineTo(350,250);//otra linea(punto en el eje cartesiano)
+// ctx.lineTo(100,300);
+// ctx.stroke();
+// ctx.closePath();//esto es para cerrar la linea, osea que podemas arrancar una nueva enlienas de codigo mas abajo y que no sea la misma
+// ctx.beginPath();//para iniciar otra linea
+// ctx.stroke();
+// ctx.arc(120,120,100,10,40);
+// ctx.strokeStyle = "#88e";
+// ctx.stroke();
+
